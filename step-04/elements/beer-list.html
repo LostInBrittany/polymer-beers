@@ -5,13 +5,24 @@
   <style>
     /* CSS rules for your element */
   </style>
-  <template>  
-    <div class="beers">
-      <template is="dom-repeat" items="{{beers}}">
-        <beer-list-item name="{{item.name}}" description="{{item.description}}">
-        </beer-list-item>
-      </template>
-    </div>
+  <template>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-2">
+          <!--Sidebar content-->
+          <div>Search: <input value="{{filterText::input}}"></div>
+          <div>Current search: <span>{{filterText}}</span></div>
+        </div>
+        <div class="col-md-10">
+          <div class="beers">
+            <template is="dom-repeat" items="{{beers}}">
+              <beer-list-item name="{{item.name}}" description="{{item.description}}">
+              </beer-list-item>
+            </template>
+          </div>
+        </div>
+      </div>
+    </div>  
   </template>
 </dom-module>
 
@@ -21,6 +32,7 @@
     is: "beer-list",
     // add properties and methods on the element's prototype
     properties: {
+      filterText: String
     },
     ready: function() {
       this.beers = [

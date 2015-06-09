@@ -113,7 +113,7 @@ And use it in the body:
 
 ## Aditionnal experiments
 
-### Make the `list-beer` element show the number of beers in the list. 
+### Make the `beer-list` element show the number of beers in the list. 
 
 In the element's `dom-model` you have access to the beers variable, you can then get it's size and show it after the beers:
 
@@ -125,7 +125,7 @@ In the element's `dom-model` you have access to the beers variable, you can then
 
 ### Play with `dom-repeat` 
 
-Create a repeater in `list-beer` that constructs a simple table:
+Create a repeater in `beer-list` that constructs a simple table:
 
 ```html
 <table>
