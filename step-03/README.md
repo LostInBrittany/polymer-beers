@@ -113,7 +113,8 @@ And use it in the body:
 
 ## Aditionnal experiments
 
-Make the `list-item` element show the number of beers in the list. 
+### Make the `list-beer` element show the number of beers in the list. 
+
 In the element's `dom-model` you have access to the beers variable, you can then get it's size and show it after the beers:
 
 ```html
@@ -121,3 +122,25 @@ In the element's `dom-model` you have access to the beers variable, you can then
 ```
 
 *Note: unlike precedent Polymer versions, the double curly-brake syntax (`{{}}`) can only be used as the only element inside a DOM node. So we need to surround it with a `span` tag.*
+
+### Play with `dom-repeat` 
+
+Create a repeater in `list-beer` that constructs a simple table:
+
+```html
+<table>
+  <tr><th>Row number</th></tr>
+  <template is="dom-repeat" items="[0, 1, 2, 3, 4, 5, 6, 7]">
+    <tr><td>{{item}}</td></tr>
+  </template>
+</table>
+```
+
+Extra points: try and make an 8x8 table using an additional `dom-repeat`.
+
+*Note: To access properties from nested `dom-repeat` templates, use the `as` attribute to assign a different name for the item property. Use the `index-as` attribute to assign a different name for the `index` property.
+
+## Summary ##
+
+You now have a web application using Polymer web components. 
+Now, let's go to [step-04](./step-04/) to learn how to add full text search to the app.

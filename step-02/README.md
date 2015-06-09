@@ -64,3 +64,6 @@ Try modifying the element to show the beer name in red.
 
 You will see that you need to do it inside the `style` block of the `dom-model` definition for the element. Following the encapsulation principe, global CSS rules don't pass the element frontier.
 
+## Summary
+
+You have added a Polymer custom web component to an otherwise static app. Now go to [step-03](./step-03/) to see how to create another element to automatically generate the beer list.
