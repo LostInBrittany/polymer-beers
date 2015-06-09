@@ -50,7 +50,7 @@ You're going to remplace the `<ul>` and the `<li>` items that you created in [st
 
 In order to do it, you need to follow the steps previously described in *Using Polymer elements*, loading the polyfill and inporting the `beer-list-item` element in the header section of `index.html` and then using the newly registered `<beer-list-item>` in the HTML body for both beers.
 
-[![Screenshot of step 02](/img/step-01_01-550.jpg)]((/img/step-01_01.jpg))
+![Screenshot](/img/step-01_01.jpg)
 
 
 
