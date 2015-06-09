@@ -36,6 +36,8 @@ Let's begin by modifying the template to add the search input.
 </template>
 ```
 
+## Two-ways data-binding
+
 Now we need to link the seach input field value to a property of the object.
 
 In the template we use value to link to the `filterText` property, and we add a label
