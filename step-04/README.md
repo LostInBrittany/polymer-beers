@@ -85,3 +85,30 @@ The only problem in our case is that, by default default, the filter and sort fu
     }
   ```
 
+1. Add a filter to the template repeater:
+
+  ```html
+    <template id="beerList" is="dom-repeat" items="{{beers}}" filter="beerFilter">
+      <beer-list-item name="{{item.name}}" description="{{item.description}}">
+      </beer-list-item>
+    </template>
+  ```
+
+  ```javascript
+    beerFilter:  function(item) {
+        return item.name.match(new RegExp(this.filterText, 'i'));
+    }
+  ```   
+
+1. Use the observer for `filterText` to force a run of the filter everytime we modify the input field content:
+
+  ```javascript
+    filterTextChanged: function(newValue, oldValue) {
+      this.$.beerList.render();
+    }
+  ```
+
+And now we have a working filter for our beers!
+
+![Screenshot](/img/step-04_02.jpg)
+

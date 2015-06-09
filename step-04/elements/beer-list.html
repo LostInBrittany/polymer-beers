@@ -15,7 +15,7 @@
         </div>
         <div class="col-md-10">
           <div class="beers">
-            <template is="dom-repeat" items="{{beers}}">
+            <template id="beerList" is="dom-repeat" items="{{beers}}" filter="beerFilter">
               <beer-list-item name="{{item.name}}" description="{{item.description}}">
               </beer-list-item>
             </template>
@@ -57,7 +57,10 @@
       ];
     },
     filterTextChanged: function(newValue, oldValue) {
-      console.log("Filter text changed, new value: "+newValue);
+      this.$.beerList.render();
+    },
+    beerFilter:  function(item) {
+        return item.name.match(new RegExp(this.filterText, 'i'));
     }
   });
 </script>
