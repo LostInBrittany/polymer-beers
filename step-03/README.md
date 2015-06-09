@@ -7,7 +7,7 @@ This element will use a JavaScript array as model and automatically generate a `
 
 We begin by creating a new file for the element, `elements/beer-list.html`. Inside it we put a basic Polymer element definition:
 
-```
+```html
 <dom-module id="beer-list">
   <style>
     /* CSS rules for your element */
