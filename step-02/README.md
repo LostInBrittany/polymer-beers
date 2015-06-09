@@ -1,4 +1,4 @@
-# Polymer Beers - Polymer tutorial - Step 02
+# Polymer Beers - Polymer tutorial - Step 02 
 
 In this step we are going to use our first Polymer elements, a very simple custom `beer-list-item`. 
 By using it you will see how easily you can add Polymer widgets to your normal web applications.
@@ -33,16 +33,17 @@ Using Polymer elements is quick and painless, you only need to follow three step
 
 1. Use the element as a new HTML tag
 
-    <beer-list-item 
-      name="Affligem Blond" 
-      description="Affligem Blonde, the classic clear blonde abbey ale, with a gentle roundness and 6.8% alcohol. Low on bitterness, it is eminently drinkable."
-    ></beer-list-item>
+``` 
+<beer-list-item 
+  name="Affligem Blond" 
+  description="Affligem Blonde, the classic clear blonde abbey ale, with a gentle roundness and 6.8% alcohol. Low on bitterness, it is eminently drinkable."
+></beer-list-item>
 
-    <beer-list-item 
-      name="Affligem Tripel" 
-      description="The king of the abbey beers. It is amber-gold and pours with a deep head and original aroma, delivering a complex, full bodied flavour. Pure enjoyment! Secondary fermentation in the bottle."
-    ></beer-list-item>
-
+<beer-list-item 
+  name="Affligem Tripel" 
+  description="The king of the abbey beers. It is amber-gold and pours with a deep head and original aroma, delivering a complex, full bodied flavour. Pure enjoyment! Secondary fermentation in the bottle."
+></beer-list-item>
+```
 
 ## What must I do?
 
@@ -53,4 +54,9 @@ In order to do it, you need to follow the steps previously described in *Using P
 ![Screenshot](/img/step-02_01.jpg)
 
 
+## Additional experiments 
+
+Try modifying the element to show the beer name in red. 
+
+You will see that you need to do it inside the `style` block of the `dom-model` definition for the element. Following the encapsulation principe, global CSS rules don't pass the element frontier.
 
