@@ -40,12 +40,12 @@ Using Polymer elements is quick and painless, you only need to follow three step
 ```html 
 <beer-list-item 
   name="Affligem Blond" 
-  description="Affligem Blonde, the classic clear blonde abbey ale, with a gentle roundness and 6.8% alcohol. Low on bitterness, it is eminently drinkable."
+  description="Affligem Blonde, the classic clear blonde abbey ale, with a gentle roundness and 6.8% alcohol..."
 ></beer-list-item>
 
 <beer-list-item 
   name="Affligem Tripel" 
-  description="The king of the abbey beers. It is amber-gold and pours with a deep head and original aroma, delivering a complex, full bodied flavour. Pure enjoyment! Secondary fermentation in the bottle."
+  description="The king of the abbey beers. It is amber-gold and pours with a deep head and original aroma..."
 ></beer-list-item>
 ```
 
