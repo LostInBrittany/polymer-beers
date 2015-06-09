@@ -52,3 +52,7 @@ Try adding more static HTML to `app/index.html`. For example:
 
     <p>Total number of beers: 2</p>
 
+## Summary
+
+We have done an app skeleton for a beers app. To begin adding dynamism, go to [step-02](../step-02).    
+

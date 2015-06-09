@@ -112,3 +112,6 @@ And now we have a working filter for our beers!
 
 ![Screenshot](/img/step-04_02.jpg)
 
+## Summary ##
+
+We have now added full text search! Now let's go on to [step-05](../step-05) to learn how to add sorting capability to the beer app.

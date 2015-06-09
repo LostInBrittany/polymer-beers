@@ -143,4 +143,4 @@ Extra points: try and make an 8x8 table using an additional `dom-repeat`.
 ## Summary ##
 
 You now have a web application using Polymer web components. 
-Now, let's go to [step-04](./step-04/) to learn how to add full text search to the app.
+Now, let's go to [step-04](../step-04/) to learn how to add full text search to the app.

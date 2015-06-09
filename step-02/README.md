@@ -66,4 +66,4 @@ You will see that you need to do it inside the `style` block of the `dom-model` 
 
 ## Summary
 
-You have added a Polymer custom web component to an otherwise static app. Now go to [step-03](./step-03/) to see how to create another element to automatically generate the beer list.
+You have added a Polymer custom web component to an otherwise static app. Now go to [step-03](../step-03/) to see how to create another element to automatically generate the beer list.
