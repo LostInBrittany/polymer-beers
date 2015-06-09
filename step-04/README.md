@@ -38,7 +38,7 @@ Let's begin by modifying the template to add the search input.
 
 ## Two-ways data-binding
 
-Now we need to link the seach input field value to a property of the object.
+Now we need to link the search input field value to a property of the object.
 
 In the template we use value to link to the `filterText` property, and we add a label
 under it to show the current value of `filterText`:
@@ -56,7 +56,7 @@ In the element registration we declare the `filterText` property as a string:
       filterText: String
     }
 ```
-And now we have a two-way databinding between the input field and the label under it.
+And now we have a two-way data-binding between the input field and the label under it.
 
 ![Screenshot](/img/step-04_01.jpg)
 
