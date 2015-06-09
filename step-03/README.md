@@ -1,4 +1,4 @@
-# Polymer Beers - Polymer tutorial - Step 02 
+# Polymer Beers - Polymer tutorial - Step 03
 
 In this step we are going to use create our first Polymer elements, a simple custom `beer-list`.
 This element will use a JavaScript array as model and automatically generate a `beer-list-element` for each beer in the array.

@@ -42,6 +42,7 @@ If you have [NodeJS](http://nodejs.org) in your system, we have put a minimalist
 As the computer used for the course haven't Git, we have structurated the project to allow a Git-less use. The `app` directory is the main directory of the project, the working version of the code. The tutorial is divided in steps, each one in its own directory:
 
 1. [Static HTML](./step-01/)
-1. [Using Polymer Elements](./step-02/)
+1. [Using Polymer elements](./step-02/)
+1. [Creating a new element](./step-03/)
 
 In each step directory you have a README file that explain the objective of the step, that you will do in the working directory `app`. If you have problems or if you get lost, you also have the solution of each step in the step directories. 
