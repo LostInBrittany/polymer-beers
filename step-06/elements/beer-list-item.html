@@ -1,0 +1,31 @@
+!-- Import Polymer library -->
+<link rel="import" href="/bower_components/polymer/polymer.html">
+
+<dom-module id="beer-list-item">
+  <template>
+    <div class="beer">
+      <h2>{{name}}</h2>
+      <p>{{description}}</p>
+    </div>
+  </template>
+  <style>
+    .beer {
+      margin: 10px;
+      padding: 10px;
+      border: solid 1px black;
+      border-radius: 10px;
+      min-height: 50px;
+    }
+  </style>
+</dom-module>
+
+<script>
+Polymer({
+  is: 'beer-list-item',
+
+  properties: {
+    name: String,
+    description: String
+  }
+})
+</script>

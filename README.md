@@ -46,5 +46,6 @@ As the computer used for the course haven't Git, we have structurated the projec
 1. [Creating a new element](./step-03/)
 1. [Filtering](./step-04/)
 1. [Sorting](./step-05/)
+1. [ ](./step-06/)
 
 In each step directory you have a README file that explain the objective of the step, that you will do in the working directory `app`. If you have problems or if you get lost, you also have the solution of each step in the step directories. 
