@@ -160,6 +160,8 @@ And then we modify the sort to inverse the order if the `descendingSort` propert
     }
 ```
 
+![Screenshot](/img/step-05_01.jpg)
+
 ## Summary ##
 
 Now that you have added list sorting, go to [step 6](../step-07) to learn how to dynamically load our beer data from a server-side JSON file.
