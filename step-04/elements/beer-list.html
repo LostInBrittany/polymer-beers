@@ -32,7 +32,10 @@
     is: "beer-list",
     // add properties and methods on the element's prototype
     properties: {
-      filterText: String
+      filterText: {
+        type: String,
+        observer: "filterTextChanged"
+      }
     },
     ready: function() {
       this.beers = [
@@ -52,6 +55,9 @@
           description: "This Trappist beer possesses a beautiful coppery colour that makes it particularly attractive. Topped with a creamy head, it gives off a slight fruity apricot smell from the fermentation. The aroma felt in the mouth is a balance confirming the fruit nuances revealed to the sense of smell. This traditional Belgian beer is best savoured at cellar temperature "
         }
       ];
+    },
+    filterTextChanged: function(newValue, oldValue) {
+      console.log("Filter text changed, new value: "+newValue);
     }
   });
 </script>

@@ -55,4 +55,33 @@ In the element registration we declare the `filterText` property as a string:
     }
 ```
 And now we have a two-way databinding between the input field and the label under it.
-![Screenshot](/img/step-02_01.jpg)
+
+![Screenshot](/img/step-04_01.jpg)
+
+## Adding a filter to the list
+
+To filter or sort the displayed items in your list, we specify a `filter` or `sort` property on the dom-repeat (or both):
+
++ `filter`: it specifies a filter callback function following the standard [Array `filter` API](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)
+
++ `sort`: it specifies a comparison function following the standard [Array `sort` API](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)
+
+In both cases, the value can be either a function object, or a string identifying a function defined on the host element.
+
+The only problem in our case is that, by default default, the filter and sort functions only run when the array itself is mutated (for example, by adding or removing items). And we want it to run when we modify an outside property, `filterText`. We will need to use the `render` function of the `dom-repeat` to force a re-run of the filter.
+
+
+1. Modify the `filterText` property to give it an [observer*](https://www.polymer-project.org/1.0/docs/devguide/properties.html#change-callbacks), a function that runs when the property changes:
+
+  ```javascript
+    properties: {
+      filterText: {
+        type: String,
+        observer: "filterTextChanged"
+      }
+    },
+    filterTextChanged: function(newValue, oldValue) {
+      console.log("Filter text changed, new value: "+newValue);
+    }
+  ```
+
