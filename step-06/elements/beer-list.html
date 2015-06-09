@@ -31,6 +31,13 @@
         </div>
       </div>
     </div>  
+    <iron-ajax
+      auto
+      url="beers/beers.json"
+      params='{}'
+      handle-as="json"
+      on-response="gotBeers"
+      debounce-duration="300"></iron-ajax>
   </template>
 </dom-module>
 
@@ -100,6 +107,9 @@
       if ( a[this.criterium] === b[this.criterium] ) return 0;
       if ( a[this.criterium] < b[this.criterium] ) return -1*invert;
       if ( a[this.criterium] > b[this.criterium] ) return 1*invert;      
+    },
+    gotBeers: function() {
+      
     }
   });
 </script>
