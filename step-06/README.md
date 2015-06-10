@@ -4,7 +4,7 @@ Enough of building an app with five beers in a hard-coded dataset! Let's fetch a
 
 ## Data ##
 
-Our new dataset is now a list of 11 beers stored in JSON format in the `step-05/beers/beers.json` file in your project. You need to put the file into `app/beers/beers.json` to make it available from the server at the URL `http://127.0.0.1:8000/app/beers/beers.json`.
+Our new dataset is now a list of 11 beers stored in JSON format in the `step-06/beers/beers.json` file in your project. You need to put the file into `app/beers/beers.json` to make it available from the server at the URL `http://127.0.0.1:8000/app/beers/beers.json`.
 
 `app/beers/beers.json`:
 
