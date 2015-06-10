@@ -6,8 +6,6 @@ I have built this [PolymerBeers](https://github.com/LostInBrittany/polymer-beers
 
 For the last several years, I've taught a web-development module in an Engineering School with a rather restrictive network. As I plan to use this tutorial in next year module, in order to explain Polymer to our students, I needed a tutorial that could be played without network acces, i.e. without Bower or Grunt. So *Polymer Beers* needed to be able to be done even behind a very restrictive proxy, and all the dependencies are included inside the git project.
 
-![Screenshot](assets/screenshot-01.png)
-
 ## What are the objectives of this tutorial ##
 
 Follow the tutorial to see how Polymer makes browsers smarter — without the use of native extensions or plug-ins:
@@ -27,7 +25,7 @@ The tutorial guides you through the entire process of building a simple applicat
 
 You can go through the whole tutorial in a couple of hours or you may want to spend a pleasant day really digging into it. If you're looking for a shorter introduction to Polymer, check out the official website.
 
-![Screenshot](assets/screenshot-02.png)
+![Screenshot](/img/step-06_01.jpg)  
 
 ## What do I need to use this tutorial ##
 
@@ -46,6 +44,6 @@ As the computer used for the course haven't Git, we have structurated the projec
 1. [Creating a new element](./step-03/)
 1. [Filtering](./step-04/)
 1. [Sorting](./step-05/)
-1. [ ](./step-06/)
+1. [Calling the server](./step-06/)
 
 In each step directory you have a README file that explain the objective of the step, that you will do in the working directory `app`. If you have problems or if you get lost, you also have the solution of each step in the step directories. 

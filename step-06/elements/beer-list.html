@@ -1,6 +1,9 @@
 <!-- Our beer-list will generate `beer-list-item` elements, so we import it -->
 <link rel="import" href="beer-list-item.html">
 
+<!-- Import iron-ajax to get the list of beers from the server -->
+<link rel="import" href="/bower_components/iron-ajax/iron-ajax.html">
+
 <dom-module id="beer-list">
   <style>
     /* CSS rules for your element */
@@ -24,7 +27,10 @@
         <div class="col-md-10">
           <div class="beers">
             <template id="beerList" is="dom-repeat" items="{{beers}}" filter="beerFilter" sort="beerSorter">
-              <beer-list-item name="{{item.name}}" description="{{item.description}}">
+              <beer-list-item 
+                id="{{item.id}}" name="{{item.name}}" 
+                description="{{item.description}}" 
+                img="{{item.img}}" alcohol="{{item.alcohol}}">
               </beer-list-item>
             </template>
           </div>
@@ -33,7 +39,8 @@
     </div>  
     <iron-ajax
       auto
-      url="beers/beers.json"
+      url="../beers/beers.json"
+      method='get'
       params='{}'
       handle-as="json"
       on-response="gotBeers"
@@ -62,33 +69,7 @@
       }
     },
     ready: function() {
-      this.beers = [
-        {
-          "alcohol": 6.8,
-          "name": "Affligem Blond",
-          "description": "Affligem Blonde, the classic clear blonde abbey ale, with a gentle roundness and 6.8% alcohol. Low on bitterness, it is eminently drinkable."
-        },
-        {
-          "alcohol": 8.5,
-          "name": "Affligem Tripel",
-          "description": "The king of the abbey beers. It is amber-gold and pours with a deep head and original aroma, delivering a complex, full bodied flavour. Pure enjoyment! Secondary fermentation in the bottle."
-        },
-        {
-          "alcohol": 9.2,
-          "name": "Rochefort 8",
-          "description": "A dry but rich flavoured beer with complex fruity and spicy flavours."
-        },
-        {
-          "alcohol": 11.3,
-          "name": "Rochefort 10",
-          "description": "The top product from the Rochefort Trappist brewery. Dark colour, full and very impressive taste. Strong plum, raisin, and black currant palate, with ascending notes of vinousness and other complexities."
-        },
-        {
-          "alcohol": 7,
-          "name": "Chimay Rouge",
-          "description": "This Trappist beer possesses a beautiful coppery colour that makes it particularly attractive. Topped with a creamy head, it gives off a slight fruity apricot smell from the fermentation. The aroma felt in the mouth is a balance confirming the fruit nuances revealed to the sense of smell. This traditional Belgian beer is best savoured at cellar temperature "
-        }
-      ];
+      this.beers = [];
       this.criteria = [
         { name: "name", label: "Alphabetical"},
         { name: "alcohol", label: "Alcohol content" }
@@ -108,8 +89,8 @@
       if ( a[this.criterium] < b[this.criterium] ) return -1*invert;
       if ( a[this.criterium] > b[this.criterium] ) return 1*invert;      
     },
-    gotBeers: function() {
-      
+    gotBeers: function(event, ironRequest) {
+      this.beers = ironRequest.response;
     }
   });
 </script>
