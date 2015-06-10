@@ -54,7 +54,7 @@ We add a `sort` attribute to the `dom-repeat` repeater, in a similar way as we d
 And we define our sorting function:
 
 ```javascript
-  alcoholSorter: function(a, b) {
+  beerSorter: function(a, b) {
     if (a.alcohol === b.alcohol) return 0;
     return b.alcohol - a.alcohol;
   }
