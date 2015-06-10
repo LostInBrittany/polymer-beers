@@ -70,7 +70,7 @@ To filter or sort the displayed items in your list, we specify a `filter` or `so
 
 In both cases, the value can be either a function object, or a string identifying a function defined on the host element.
 
-The only problem in our case is that, by default default, the filter and sort functions only run when the array itself is mutated (for example, by adding or removing items). And we want it to run when we modify an outside property, `filterText`. We will need to use the `render` function of the `dom-repeat` to force a re-run of the filter.
+The only problem in our case is that, by default, the filter and sort functions only run when the array itself is mutated (for example, by adding or removing items). And we want it to run when we modify an outside property, `filterText`. We will need to use the `render` function of the `dom-repeat` to force a re-run of the filter.
 
 
 1. Modify the `filterText` property to give it an [observer*](https://www.polymer-project.org/1.0/docs/devguide/properties.html#change-callbacks), a function that runs when the property changes:
