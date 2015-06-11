@@ -19,7 +19,10 @@
               </template>
             </select>
           </div>
-          <div><input type="checkbox" checked="{{descendingSort::change}}" name="sortingOrder"> Descending sort</div>
+          <div>
+            <input type="checkbox" checked="{{descendingSort::change}}" name="sortingOrder"> Descending sort
+          </div>
+          <div>Number of results: <span>{{currentBeers}}</span></div>
         </div>
         <div class="col-md-10">
           <div class="beers">
@@ -40,6 +43,13 @@
     is: "beer-list",
     // add properties and methods on the element's prototype
     properties: {
+      beers: {
+        type: Array,
+      },
+      currentBeers: {
+        type: String,
+        computed: "getCurrentBeers(beers, filterText)"
+      },
       filterText: {
         type: String,
         observer: "criteriaChanged"
@@ -82,6 +92,7 @@
           "description": "This Trappist beer possesses a beautiful coppery colour that makes it particularly attractive. Topped with a creamy head, it gives off a slight fruity apricot smell from the fermentation. The aroma felt in the mouth is a balance confirming the fruit nuances revealed to the sense of smell. This traditional Belgian beer is best savoured at cellar temperature "
         }
       ];
+      this.filterText = "";
       this.criteria = [
         { name: "name", label: "Alphabetical"},
         { name: "alcohol", label: "Alcohol content" }
@@ -93,6 +104,14 @@
     },
     beerFilter:  function(item) {
         return item.name.match(new RegExp(this.filterText, 'i'));
+    },
+    getCurrentBeers: function() {
+      var current = 0;
+
+      for (var i in this.beers) {
+        if (this.beerFilter(this.beers[i])) current++
+      }
+      return current;
     },
     beerSorter: function(a, b) {
       var invert = 1;

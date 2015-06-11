@@ -139,3 +139,4 @@ And we add some CSS to make things prettier:
 
 
 ![Screenshot](/img/step-06_01.jpg)  
+

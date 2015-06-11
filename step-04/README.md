@@ -114,6 +114,38 @@ And now we have a working filter for our beers!
 
 ![Screenshot](/img/step-04_02.jpg)
 
+## Additional experiments
+
+You have maybe noticed it, the *total beers* that you added in the *additional experiments* section some steps ago shows only that, the total. It would be nice if it showed the *current beers* metric, i.e. the number of beers currently showed in page, after filtering.
+
+How could you do it? Polymer has several kinds of properties, and one of them is going to help us here: the  [computed properties](https://www.polymer-project.org/1.0/docs/devguide/p watroperties.html#computed-properties). These are virtual properties whose values are calculated from other properties.
+
+To define a computed property, add it to the properties object with a computed key mapping to a computing function.
+
+We need a virtual properties, `currentBeers` that watches `beers` and `filterText` and that recalculates the number of beers on the page.
+
+```javascript
+    properties: {
+      filterText: {
+        type: String,
+        observer: "filterTextChanged"
+      },
+      beers: {
+        type: Array,
+      },
+      currentBeers: {
+        type: String,
+        computed: "getCurrentBeers(beers, filterText)"
+      }
+    },
+    getCurrentBeers: function() {
+      // Do something clever...
+    },
+```
+
+Inside the function we can go through `beers` and incrementing a counter if the beer matches the `beerFilter` filter.
+
+ 
 ## Summary ##
 
 We have now added full text search! Now let's go on to [step-05](../step-05) to learn how to add sorting capability to the beer app.
