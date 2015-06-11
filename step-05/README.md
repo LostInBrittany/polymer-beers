@@ -164,5 +164,5 @@ And then we modify the sort to inverse the order if the `descendingSort` propert
 
 ## Summary ##
 
-Now that you have added list sorting, go to [step 6](../step-07) to learn how to dynamically load our beer data from a server-side JSON file.
+Now that you have added list sorting, go to [step 6](../step-06) to learn how to dynamically load our beer data from a server-side JSON file.
     

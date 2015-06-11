@@ -57,6 +57,7 @@ Then we create a new Polymer element, `routing.html`, that will call *page.js* a
 <script src="/bower_components/page/page.js"></script>
 
 <script>
+  window.addEventListener('WebComponentsReady', function() {
     // Grab a reference to our auto-binding template
     // and give it some initial binding values
     // Learn more about auto-binding templates at http://goo.gl/Dx1u2g
@@ -78,6 +79,7 @@ Then we create a new Polymer element, `routing.html`, that will call *page.js* a
     page({
       hashbang: true
     });
+  });
 </script>
 ```
 

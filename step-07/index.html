@@ -16,12 +16,14 @@
 </head>
 <body unresolved>
   <template is="dom-bind" id="app">
-    <div>Current route <span>{{route}}</span> 
+    <div>
+      Current route <span>{{route}}</span> 
       <template is="dom-if" if="{{params}}">
         - <span>{{params}}</span>
       </template>
-    <div class="container">
-      <beer-list></beer-list>
+      <div class="container">
+        <beer-list></beer-list>
+      </div>
     </div>
   </template>
 </body>
