@@ -1,4 +1,4 @@
-# Polymer Beers - Polymer tutorial - Step 06
+# Polymer Beers - Polymer tutorial - Step 07
 
 What if we wanted to show more details about a beer when we click on it? We can imagine the opening another panel with the detailed information.
 
