@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en" ng-app>
+<head>
+  <meta charset="utf-8">
+  <title>Polymer Beer Gallery</title>
+  <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+
+
+  <!-- Polyfill Web Components support for older browsers -->
+  <script src="/bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+
+  <!-- Import `beer-list` element -->
+  <link rel="import" href="elements/beer-list.html">
+  <link rel="import" href="elements/routing.html">
+
+</head>
+<body unresolved>
+  <template is="dom-bind" id="app">
+    <div>Current route <span>{{route}}</span> 
+      <template is="dom-if" if="{{params}}">
+        - <span>{{params}}</span>
+      </template>
+    <div class="container">
+      <beer-list></beer-list>
+    </div>
+  </template>
+</body>
+</html>

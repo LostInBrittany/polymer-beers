@@ -45,5 +45,6 @@ As the computer used for the course haven't Git, we have structurated the projec
 1. [Filtering](./step-04/)
 1. [Sorting](./step-05/)
 1. [Calling the server](./step-06/)
+1. [Using with others libraries: page.js](./step-07/)
 
 In each step directory you have a README file that explain the objective of the step, that you will do in the working directory `app`. If you have problems or if you get lost, you also have the solution of each step in the step directories. 
