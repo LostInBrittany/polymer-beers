@@ -2,7 +2,7 @@
 
 What if we wanted to show more details about a beer when we click on it? We can imagine the opening another panel with the detailed information.
 
-In AngularJS we would get this behaviour by using a router, and defining the routing conditions in the global applicaation definition.
+In AngularJS we would get this behaviour by using a router, and defining the routing conditions in the global application definition.
 
 Polymer hasn't got a router element as powerful as Angular's one... because it doesn't need it!
 
