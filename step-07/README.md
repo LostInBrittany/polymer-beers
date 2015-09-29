@@ -69,16 +69,70 @@ Then we create a new Polymer element, `routing.html`, that will call *page.js* a
     page('/beers', function () {
       app.route = 'beers';
     });
-    page('/beers/:name', function (data) {
-      app.route = 'beers';
+    page('/beer/:name', function (data) {
+      app.route = 'beer';
       app.params = data.params;
+      app.beerName = data.params.name;
     });
-
-    page.redirect('*', '/beers');
     // add #! before urls
     page({
       hashbang: true
     });
   });
 </script>
+```
+
+As many Express-like routers, Page.js allows to define routes by matching rules on the URL fragment (the URL content beginning with the hash separator `#`).
+In our example, we declare two routes, one for the beer list (URL fragment `#/beers`) and another for the individual beers (URL fragments following the '/beer/:name' schema). For each of these routes, we set properties in the `app` object, properties that can be read from the main app.
+
+## Using the route set properties
+
+Let's modify `beer-list-item` by adding a link to the beer name that will send us to the route corresponding to that beer.
+
+
+In Polymer 1.x the binding annotation must currently span the entire content of the tag or the entire value of an expression.
+Notations that were usual in older versions of Polymer, like `<a href="#!/beer/{{id}}"><h2 class="el-name">{{name}}</h2></a>` are not legal in Polymer 1.x.  We need to use a computed property, like `<a href="{{url}}"><h2 class="el-name">{{name}}</h2></a>`.
+
+So we define a `url` computed property in our element:
+
+```
+Polymer({
+  is: 'beer-list-item',
+
+  properties: {
+    [...]
+    url: {
+      type: String,
+      computed: "getUrl(id)"
+    }
+  },
+  getUrl: function(id) {
+    return "#!/beer/"+id
+  }
+})
+```
+
+Another thing to remember is that the `href` attribute needs we do not a two-ways data binding but an attribute binding, using `$=` instead of `=`.
+
+>More info on these two topics:
+>
+>* [Computed propeties](https://www.polymer-project.org/1.0/docs/devguide/properties.html#computed-properties)
+>* [Attribute binding](https://www.polymer-project.org/1.0/docs/devguide/data-binding.html#attribute-binding)
+
+So now we can modify the template to add the link using the `url` computed property and attribute binding:
+
+```
+<dom-module id="beer-list-item">
+  <template>
+    <style>
+      [...]
+    </style>
+    <div id="{{id}}" class="beer clearfix">
+      <img class="pull-right el-img" src="{{img}}">
+      <a href$="{{url}}"><h2 class="el-name">{{name}}</h2></a>
+      <p class="el-description">{{description}}</p>
+      <p class="pull-right el-alcohol">Alcohol content: <span>{{alcohol}}</span>%</p>
+    </div>
+  </template>
+</dom-module>
 ```

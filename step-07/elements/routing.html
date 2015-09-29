@@ -11,16 +11,14 @@
     // We use Page.js for routing. This is a Micro
     // client-side router inspired by the Express router
     // More info: https://visionmedia.github.io/page.js/
-    page('/beers', function () {
+    page('/beers', function (data) {
       app.route = 'beers';
     });
     page('/beer/:name', function (data) {
-      app.route = 'beers';
+      app.route = 'beer';
       app.params = data.params;
       console.log(data.params)
     });
-
-    //page.redirect('*', '/beers');
     // add #! before urls
     page({
       hashbang: true
