@@ -1,4 +1,4 @@
-# Polymer Beers - Polymer tutorial - Step 05
+# ![](/img/logo-25px.png) Polymer Beers - Polymer tutorial - Step 05
 
 In this step, you will add a feature to let your users control the order of the items in the beer list. The dynamic ordering is implemented by creating a new model property, wiring it together with the repeater, and letting the data binding magic do the rest of the work.
 
@@ -153,7 +153,7 @@ And then we modify the sort to inverse the order if the `descendingSort` propert
 ```javascript
     beerSorter: function(a, b) {
       var invert = 1;
-      if (this.descendingSort) invert = -1; 
+      if (this.descendingSort) invert = -1;
       if ( a[this.criterium] === b[this.criterium] ) return 0;
       if ( a[this.criterium] < b[this.criterium] ) return -1*invert;
       if ( a[this.criterium] > b[this.criterium] ) return 1*invert;      
@@ -165,4 +165,3 @@ And then we modify the sort to inverse the order if the `descendingSort` propert
 ## Summary ##
 
 Now that you have added list sorting, go to [step 6](../step-06) to learn how to dynamically load our beer data from a server-side JSON file.
-    

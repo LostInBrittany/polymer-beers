@@ -1,4 +1,4 @@
-# Polymer Beers - Polymer tutorial - Step 07
+# ![](/img/logo-25px.png) Polymer Beers - Polymer tutorial - Step 07
 
 What if we wanted to show more details about a beer when we click on it? We can imagine the opening another panel with the detailed information.
 
@@ -8,7 +8,7 @@ Polymer hasn't got a router element as powerful as Angular's one... because it d
 
 A part of the beauty of the component approach is that it works very well with external libraries. And in JavaScript there area (metric) ton of routers that we can use. My personal favorite is [visionmedia's page.js](https://visionmedia.github.io/page.js/), a tiny Express-inspired client-side router
 
-So we are going to use *page.js* to do the routing side of our app without having to change things in our elements. 
+So we are going to use *page.js* to do the routing side of our app without having to change things in our elements.
 
 ## Auto-binding magic
 
@@ -82,4 +82,3 @@ Then we create a new Polymer element, `routing.html`, that will call *page.js* a
   });
 </script>
 ```
-

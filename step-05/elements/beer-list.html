@@ -2,16 +2,16 @@
 <link rel="import" href="beer-list-item.html">
 
 <dom-module id="beer-list">
-  <style>
-    /* CSS rules for your element */
-  </style>
   <template>
+    <style>
+      /* CSS rules for your element */
+    </style>
     <div class="container">
       <div class="row">
         <div class="col-md-2">
           <!--Sidebar content-->
           <div>Search: <input value="{{filterText::input}}"></div>
-          <div>  
+          <div>
             Sort by:
             <select value="{{criterium::change}}">
               <template is="dom-repeat" items="{{criteria}}">
@@ -33,7 +33,7 @@
           </div>
         </div>
       </div>
-    </div>  
+    </div>
   </template>
 </dom-module>
 
@@ -115,10 +115,10 @@
     },
     beerSorter: function(a, b) {
       var invert = 1;
-      if (this.descendingSort) invert = -1; 
+      if (this.descendingSort) invert = -1;
       if ( a[this.criterium] === b[this.criterium] ) return 0;
       if ( a[this.criterium] < b[this.criterium] ) return -1*invert;
-      if ( a[this.criterium] > b[this.criterium] ) return 1*invert;      
+      if ( a[this.criterium] > b[this.criterium] ) return 1*invert;
     }
   });
 </script>

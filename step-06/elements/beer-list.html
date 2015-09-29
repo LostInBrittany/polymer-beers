@@ -5,16 +5,16 @@
 <link rel="import" href="/bower_components/iron-ajax/iron-ajax.html">
 
 <dom-module id="beer-list">
-  <style>
-    /* CSS rules for your element */
-  </style>
   <template>
+    <style>
+      /* CSS rules for your element */
+    </style>
     <div class="container">
       <div class="row">
         <div class="col-md-2">
           <!--Sidebar content-->
           <div>Search: <input value="{{filterText::input}}"></div>
-          <div>  
+          <div>
             Sort by:
             <select value="{{criterium::change}}">
               <template is="dom-repeat" items="{{criteria}}">
@@ -30,16 +30,16 @@
         <div class="col-md-10">
           <div class="beers">
             <template id="beerList" is="dom-repeat" items="{{beers}}" filter="beerFilter" sort="beerSorter">
-              <beer-list-item 
-                id="{{item.id}}" name="{{item.name}}" 
-                description="{{item.description}}" 
+              <beer-list-item
+                id="{{item.id}}" name="{{item.name}}"
+                description="{{item.description}}"
                 img="{{item.img}}" alcohol="{{item.alcohol}}">
               </beer-list-item>
             </template>
           </div>
         </div>
       </div>
-    </div>  
+    </div>
     <iron-ajax
       auto
       url="../beers/beers.json"
@@ -103,10 +103,10 @@
     },
     beerSorter: function(a, b) {
       var invert = 1;
-      if (this.descendingSort) invert = -1; 
+      if (this.descendingSort) invert = -1;
       if ( a[this.criterium] === b[this.criterium] ) return 0;
       if ( a[this.criterium] < b[this.criterium] ) return -1*invert;
-      if ( a[this.criterium] > b[this.criterium] ) return 1*invert;      
+      if ( a[this.criterium] > b[this.criterium] ) return 1*invert;
     },
     gotBeers: function(event, ironRequest) {
       this.beers = ironRequest.response;

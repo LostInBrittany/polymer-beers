@@ -1,4 +1,4 @@
-# Polymer Beers - Polymer tutorial - Step 06
+# ![](/img/logo-25px.png) Polymer Beers - Polymer tutorial - Step 06
 
 Enough of building an app with five beers in a hard-coded dataset! Let's fetch a larger dataset from our server using one of [Polymer iron elements](https://elements.polymer-project.org/browse?package=iron-elements) called [`iron-ajax`](https://elements.polymer-project.org/elements/iron-ajax).
 
@@ -24,7 +24,7 @@ Our new dataset is now a list of 11 beers stored in JSON format in the `step-06/
 
 ## `iron-ajax` element
 
-We will use the `iron-ajax` to  to make an HTTP request to your web server to fetch the data in the `app/beers/beers.json` file. 
+We will use the `iron-ajax` to  to make an HTTP request to your web server to fetch the data in the `app/beers/beers.json` file.
 
 `iron-ajax` is one of the elements in the [Polymer iron elements](https://elements.polymer-project.org/browse?package=iron-elements) collection, a set of visual and non-visual utility elements. They include elements for working with layout, user input, selection, and scaffolding apps.
 
@@ -41,11 +41,11 @@ To use `iron-ajax` in our application we need:
     "license": "http://polymer.github.io/LICENSE.txt",
     "dependencies": {    
       "bootstrap": "~3.3.4",
-      "polymer": "~1.0.0",
+      "polymer": "~1.1.0",
       "iron-ajax": "PolymerElements/iron-ajax#^1.0.0"
     }
   }
-  ``` 
+  ```
 
 1. Import `iron-ajax` in `beer-list`
 
@@ -139,4 +139,3 @@ And we add some CSS to make things prettier:
 
 
 ![Screenshot](/img/step-06_01.jpg)  
-
