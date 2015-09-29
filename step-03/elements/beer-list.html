@@ -2,13 +2,13 @@
 <link rel="import" href="beer-list-item.html">
 
 <dom-module id="beer-list">
-  <style>
-    .cell {
-      padding: 5px;
-      border: 1px black solid;
-    }
-  </style>
-  <template>  
+  <template>
+    <style>
+      .cell {
+        padding: 5px;
+        border: 1px black solid;
+      }
+    </style>
     <div class="beers">
       <template is="dom-repeat" items="{{beers}}">
         <beer-list-item name="{{item.name}}" description="{{item.description}}">
@@ -17,11 +17,11 @@
     </div>
     <table>
   <tr><th colspan='8'>Row number</th></tr>
-  <template 
+  <template
     is="dom-repeat" items="[0, 1, 2, 3, 4, 5, 6, 7]" as="lines">
-    <tr>        
-       <template 
-        is="dom-repeat" 
+    <tr>
+       <template
+        is="dom-repeat"
         items='["a","b","c","d","e","f"]' as="columns">
           <td class="cell">
             <span>{{lines}}</span> - <span>{{columns}}</span>

@@ -1,4 +1,4 @@
-# Polymer Beers - Polymer tutorial - Step 01
+# ![](/img/logo-25px.png) Polymer Beers - Polymer tutorial - Step 01
 
 
 This is the initial step of the tutorial. In this step you won't need to code, everything is already coded for you.
@@ -14,12 +14,12 @@ In this step you will add some basic information about two beers to an HTML page
 As you can see, the `app` directory have several sub-directories:
 
 * `beers`: a service endpoint with all the information about our beer collection. It will be used in the later steps of the tutorial.
-* `css`: the stylesheets for the app. 
+* `css`: the stylesheets for the app.
 * `elements`: here you will find the definition of the custom Polymer elements used in the tutorial
 
 ## Dependencies
 
-To simplify thrid-party dependencies management, a custom `.bowerrc` file is used to ensure that both the application version in `app` folder and the solutions in the `step-XX` folders use the same `bower_components` folder at the root of the project. 
+To simplify thrid-party dependencies management, a custom `.bowerrc` file is used to ensure that both the application version in `app` folder and the solutions in the `step-XX` folders use the same `bower_components` folder at the root of the project.
 
 All the dependencies have been included in the git repository to be able to run the tutorial fully offline.
 
@@ -32,14 +32,14 @@ Add the beer information to the `app/index.html` file:
       <li>
         <span>Affligem Blond</span>
         <p>
-          Affligem Blonde, the classic clear blonde abbey ale, with a gentle roundness and 6.8% alcohol. 
+          Affligem Blonde, the classic clear blonde abbey ale, with a gentle roundness and 6.8% alcohol.
           Low on bitterness, it is eminently drinkable.
         </p>
       </li>
       <li>
         <span>Affligem Tripel</span>
         <p>
-          The king of the abbey beers. It is amber-gold and pours with a deep head and original aroma, 
+          The king of the abbey beers. It is amber-gold and pours with a deep head and original aroma,
           delivering a complex, full bodied flavour. Pure enjoyment! Secondary fermentation in the bottle.
         </p>
       </li>
@@ -55,4 +55,3 @@ Try adding more static HTML to `app/index.html`. For example:
 ## Summary
 
 We have done an app skeleton for a beers app. To begin adding dynamism, go to [step-02](../step-02).    
-

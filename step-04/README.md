@@ -1,7 +1,7 @@
-# Polymer Beers - Polymer tutorial - Step 04
+# ![](/img/logo-25px.png) Polymer Beers - Polymer tutorial - Step 04
 
-We did a lot of work in laying a foundation for the app in the last step, so now we'll do something simple; 
-we will add full text search (yes, it will be simple!). 
+We did a lot of work in laying a foundation for the app in the last step, so now we'll do something simple;
+we will add full text search (yes, it will be simple!).
 
 We want to add a search box to the app, and we want the results on the beer list change according to what the user types into the search box.
 
@@ -145,7 +145,7 @@ We need a virtual properties, `currentBeers` that watches `beers` and `filterTex
 
 Inside the function we can go through `beers` and incrementing a counter if the beer matches the `beerFilter` filter.
 
- 
+
 ## Summary ##
 
 We have now added full text search! Now let's go on to [step-05](../step-05) to learn how to add sorting capability to the beer app.

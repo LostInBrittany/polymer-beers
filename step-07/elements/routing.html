@@ -14,12 +14,13 @@
     page('/beers', function () {
       app.route = 'beers';
     });
-    page('/beers/:name', function (data) {
+    page('/beer/:name', function (data) {
       app.route = 'beers';
       app.params = data.params;
+      console.log(data.params)
     });
 
-    page.redirect('*', '/beers');
+    //page.redirect('*', '/beers');
     // add #! before urls
     page({
       hashbang: true

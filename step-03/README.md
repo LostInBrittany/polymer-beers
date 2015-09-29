@@ -1,4 +1,4 @@
-# Polymer Beers - Polymer tutorial - Step 03
+# ![](/img/logo-25px.png) Polymer Beers - Polymer tutorial - Step 03
 
 In this step we are going to use create our first Polymer elements, a simple custom `beer-list`.
 This element will use a JavaScript array as model and automatically generate a `beer-list-element` for each beer in the array.
@@ -13,11 +13,11 @@ We begin by creating a new file for the element, `elements/beer-list.html`. Insi
 <link rel="import" href="beer-list-item.html">
 
 <dom-module id="beer-list">
-  <style>
-    /* CSS rules for your element */
-  </style>
   <template>
     <!-- local DOM for your element -->
+    <style>
+      /* CSS rules for your element */
+    </style>
   </template>
 </dom-module>
 
@@ -79,10 +79,10 @@ A reasonable thing to do for our `beer-list` would be to spawn a `beer-list-elem
 
 ```html
 <dom-module id="beer-list">
-  <style>
-    /* CSS rules for your element */
-  </style>
-  <template>
+  <template>  
+    <style>
+      /* CSS rules for your element */
+    </style>
     <div class="beers">
       <template is="dom-repeat" items="{{beers}}">
         <beer-list-item name="{{item.name}}" description="{{item.description}}">
@@ -113,7 +113,7 @@ And use it in the body:
 
 ## Aditionnal experiments
 
-### Make the `beer-list` element show the number of beers in the list. 
+### Make the `beer-list` element show the number of beers in the list.
 
 In the element's `dom-model` you have access to the beers variable, you can then get it's size and show it after the beers:
 
@@ -123,7 +123,7 @@ In the element's `dom-model` you have access to the beers variable, you can then
 
 *Note: unlike precedent Polymer versions, the double curly-brake syntax (`{{}}`) can only be used as the only element inside a DOM node. So we need to surround it with a `span` tag.*
 
-### Play with `dom-repeat` 
+### Play with `dom-repeat`
 
 Create a repeater in `beer-list` that constructs a simple table:
 
@@ -138,9 +138,9 @@ Create a repeater in `beer-list` that constructs a simple table:
 
 Extra points: try and make an 8x8 table using an additional `dom-repeat`.
 
-*Note: To access properties from nested `dom-repeat` templates, use the `as` attribute to assign a different name for the item property. Use the `index-as` attribute to assign a different name for the `index` property.
+*Note: To access properties from nested `dom-repeat` templates, use the `as` attribute to assign a different name for the item property. Use the `index-as` attribute to assign a different name for the `index` property.*
 
 ## Summary ##
 
-You now have a web application using Polymer web components. 
+You now have a web application using Polymer web components.
 Now, let's go to [step-04](../step-04/) to learn how to add full text search to the app.
