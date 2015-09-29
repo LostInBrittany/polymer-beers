@@ -13,14 +13,18 @@
   <link rel="import" href="elements/beer-list.html">
   <link rel="import" href="elements/routing.html">
 
+
+  <!-- Import iron-pages -->
+  <link rel="import" href="/bower_components/iron-pages/iron-pages.html">
+  
 </head>
 <body unresolved>
   <template is="dom-bind" id="app">
     <div>
-      Current route <span>{{route}}</span> 
-      <template is="dom-if" if="{{params}}">
-        - <span>{{params}}</span>
-      </template>
+      <iron-pages attr-for-selected="data-route" selected="{{route}}">
+        <h1 data-route="beer">You have clicked on <span>{{params.name}}</span></h1>
+      </iron-pages>
+
       <div class="container">
         <beer-list></beer-list>
       </div>

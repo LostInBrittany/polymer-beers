@@ -66,14 +66,15 @@ Then we create a new Polymer element, `routing.html`, that will call *page.js* a
     // We use Page.js for routing. This is a Micro
     // client-side router inspired by the Express router
     // More info: https://visionmedia.github.io/page.js/
-    page('/beers', function () {
+    page('/beers', function (data) {
       app.route = 'beers';
     });
     page('/beer/:name', function (data) {
       app.route = 'beer';
       app.params = data.params;
-      app.beerName = data.params.name;
+      console.log(data.params)
     });
+    page.redirect('*', '/beers');
     // add #! before urls
     page({
       hashbang: true
@@ -84,18 +85,19 @@ Then we create a new Polymer element, `routing.html`, that will call *page.js* a
 
 As many Express-like routers, Page.js allows to define routes by matching rules on the URL fragment (the URL content beginning with the hash separator `#`).
 In our example, we declare two routes, one for the beer list (URL fragment `#/beers`) and another for the individual beers (URL fragments following the '/beer/:name' schema). For each of these routes, we set properties in the `app` object, properties that can be read from the main app.
-
-## Using the route set properties
-
-Let's modify `beer-list-item` by adding a link to the beer name that will send us to the route corresponding to that beer.
+A third route (defined with `page.redirect('*', '/beers');`) redirects trafic for other URL fragments to the beer list.
 
 
-In Polymer 1.x the binding annotation must currently span the entire content of the tag or the entire value of an expression.
-Notations that were usual in older versions of Polymer, like `<a href="#!/beer/{{id}}"><h2 class="el-name">{{name}}</h2></a>` are not legal in Polymer 1.x.  We need to use a computed property, like `<a href="{{url}}"><h2 class="el-name">{{name}}</h2></a>`.
+## Hyperlinking the beers
+
+In order to get more details on a beer when we click on its name, we need to put the name inside a `<a>` tag that will send us to the route corresponding to that beer.
+
+
+In Polymer 1.x the binding annotation must currently span the entire text content of a node, or the entire value of an attribute. So string concatenation is not supported. Notations that were usual in older versions of Polymer, like `<a href="/beer/{{id}}"><h2 class="el-name">{{name}}</h2></a>` are not legal in Polymer 1.x.  We need to use a [computed property](https://www.polymer-project.org/1.0/docs/devguide/properties.html#computed-properties), like `<a href="{{url}}"><h2 class="el-name">{{name}}</h2></a>`.
 
 So we define a `url` computed property in our element:
 
-```
+```javascript
 Polymer({
   is: 'beer-list-item',
 
@@ -107,21 +109,14 @@ Polymer({
     }
   },
   getUrl: function(id) {
-    return "#!/beer/"+id
+    return "/beer/"+id
   }
 })
 ```
 
-Another thing to remember is that the `href` attribute needs we do not a two-ways data binding but an attribute binding, using `$=` instead of `=`.
+And then we use this property in the hyperlink element:
 
->More info on these two topics:
->
->* [Computed propeties](https://www.polymer-project.org/1.0/docs/devguide/properties.html#computed-properties)
->* [Attribute binding](https://www.polymer-project.org/1.0/docs/devguide/data-binding.html#attribute-binding)
-
-So now we can modify the template to add the link using the `url` computed property and attribute binding:
-
-```
+```javascript
 <dom-module id="beer-list-item">
   <template>
     <style>
@@ -129,10 +124,53 @@ So now we can modify the template to add the link using the `url` computed prope
     </style>
     <div id="{{id}}" class="beer clearfix">
       <img class="pull-right el-img" src="{{img}}">
-      <a href$="{{url}}"><h2 class="el-name">{{name}}</h2></a>
+      <a href="{{url}}"><h2 class="el-name">{{name}}</h2></a>
       <p class="el-description">{{description}}</p>
       <p class="pull-right el-alcohol">Alcohol content: <span>{{alcohol}}</span>%</p>
     </div>
   </template>
 </dom-module>
 ```
+
+
+## Showing current choice
+
+To keep the learning curve gentle, in the current step we are only showing a label when a beer have been selected.
+Later in next step we will see how to show a different page when the beer detail is selected.
+
+To show a label when a beer have been selected, we are going to use Polymer's [iron-pages](https://elements.polymer-project.org/elements/iron-pages) element. *iron-pages* is an element that shows only one of its children, according to a `selected` property.
+
+In order to use it, we do the import in `index.html`:
+
+```javascript
+<!-- Import iron-pages -->
+<link rel="import" href="/bower_components/iron-pages/iron-pages.html">
+```
+
+Then we use it:
+
+```javascript
+<template is="dom-bind" id="app">
+  <div>
+    <iron-pages attr-for-selected="data-route" selected="{{route}}">
+      <h1 data-route="beer">You have clicked on <span>{{params.name}}</span></h1>
+    </iron-pages>
+
+    <div class="container">
+      <beer-list></beer-list>
+    </div>
+  </div>
+</template>
+```
+
+Its attribute `attr-for-selected` tells us what attribute from its children is used for selecting, the selecting key. Here we are looking to the `data-route` attribute on its children.
+
+The `selected` attribute tells us the value of the selecting attribute. We are binding it to the `route` property, which (as you may remember) is set by the router.
+
+Let's see what happens here:
+
+* when the router detects a `/beers` URL fragment, it sets the `route` to `beers`. The `iron-pages` components takes then the `route` value, `beers`, and compared them with the value of the `data-route` attribute of its only child. As it doesn't coincide, the child isn't shown.
+
+* when the router detects a `/beer/:name` URL fragment, it sets the `route` to `beer` and puts the beer name inside `params`. The `iron-pages` components takes then the `route` value, `beer`, and compared them with the value of the `data-route` attribute of its only child. As it coincides, that children is shown, and the label uses `param.name` to get the name of the selected beer.
+
+![Screenshot](/img/step-07_01.jpg) 
