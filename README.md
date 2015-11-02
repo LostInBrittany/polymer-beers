@@ -29,6 +29,9 @@ You can go through the whole tutorial in a couple of hours or you may want to sp
 
 ![Screenshot](/img/step-06_01.jpg)  
 
+
+![Screenshot](/img/step-08_01.jpg)
+
 ## What do I need to use this tutorial ##
 
 Besides a web browser and a text-editor (we suggest the excellent [Sublime Text](http://www.sublimetext.com/)), you will only need a web-server to test your code.
