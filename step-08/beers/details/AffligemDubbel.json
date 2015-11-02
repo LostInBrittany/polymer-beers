@@ -1,0 +1,12 @@
+{
+  "alcohol": 6.8,
+  "availability": "Year round",
+  "brewery": "Brasserie Affligem (Heineken)",
+  "description": "A reddish-brown abbey ale brewed with dark malts. The secondary fermentation gives a fruity aroma and a unique spicy character with a distinctive aftertaste. Secondary fermentation in the bottle.",
+  "id": "AffligemDubbel",
+  "img": "beers/img/AffligemDubbel.jpg",
+  "label": "beers/img/AffligemDubbel-label.png",
+  "name": "Affligem Dubbel",
+  "serving": "Serve in a Snifter",
+  "style": "Belgian-Style Dubbel"
+}

@@ -1,0 +1,170 @@
+<!-- Import iron-ajax to get the list of beers from the server -->
+<link rel="import" href="/bower_components/iron-ajax/iron-ajax.html">
+
+
+
+<dom-module id="beer-details">
+  <template>
+    <style>
+      .beer {
+        margin: 10px;
+        padding: 10px;
+        border: solid 1px black;
+        border-radius: 10px;
+        min-height: 150px;
+      }
+      .back {
+        width: 50px;
+        height: 50px;
+      }
+      .img {
+        float: left;
+        border: 1px solid black;
+        margin-right: 3em;
+        margin-bottom: 2em;
+        background-color: white;
+        padding: 2em;
+        height: 400px;
+        width: 400px;
+      }
+      .alcohol {
+        clear:both;
+      }
+
+      ul.beer-thumbs {
+        margin: 0;
+        list-style: none;
+      }
+
+      ul.beer-thumbs li {
+        border: 1px solid black;
+        display: inline-block;
+        margin: 1em;
+        background-color: white;
+      }
+
+      ul.beer-thumbs img {
+        height: 100px;
+        width: 100px;
+        padding: 1em;
+      }
+
+      ul.specs {
+        clear: both;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      ul.specs > li{
+        display: inline-block;
+        width: 200px;
+        vertical-align: top;
+      }
+
+      ul.specs > li > span{
+        font-weight: bold;
+        font-size: 1.2em;
+      }
+
+      ul.specs dt {
+        font-weight: bold;
+      }
+
+      h1 {
+        border-bottom: 1px solid gray;
+      }
+
+    </style>
+
+
+
+
+    <div id="{{beer.id}}" class="beer clearfix">
+      <a href="#/beers"><img class="pull-right back" src="../img/back.png"></a>
+      <h1 class="name"><span>{{beer.name}}</span></h1>
+      <img class="pull-right img" src="{{mainImg}}">
+      <p class="description">{{beer.description}}</p>
+
+      <ul class="beer-thumbs">
+        <li>
+          <img src="{{beer.img}}" on-click="setImage">
+        </li>
+        <li>
+          <img src="{{beer.label}}" on-click="setImage">
+        </li>
+      </ul>
+      <ul class="specs">
+        <li>
+          <dl>
+            <dt>Alcohol content</dt>
+            <dd><span>{{beer.alcohol}}</span>%</dd>
+          </dl>
+        </li>
+        <li>
+          <dl>
+            <dt>Brewery</dt>
+            <dd>{{beer.brewery}}</dd>
+          </dl>
+        </li>
+        <li>
+          <dl>
+            <dt>Availability</dt>
+            <dd>{{beer.availability}}</dd>
+          </dl>
+        </li>
+        <li>
+          <dl>
+            <dt>Style</dt>
+            <dd>{{beer.style}}</dd>
+          </dl>
+        </li>
+        <li>
+          <dl>
+            <dt>Serving instructions</dt>
+            <dd>{{beer.serving}}</dd>
+          </dl>
+        </li>
+      </ul>
+    </div>
+    <iron-ajax
+      auto
+      url="{{url}}"
+      method='get'
+      params='{}'
+      handle-as="json"
+      on-response="gotBeers"
+      debounce-duration="300"></iron-ajax>
+  </template>
+  </template>
+</dom-module>
+
+<script>
+Polymer({
+  is: 'beer-details',
+
+  properties: {
+    id: String,
+    name: String,
+    description: String,
+    img: String,
+    alcohol: String,
+    url: {
+      type: String,
+      computed: "getUrl(id)"
+    }
+  },
+  getUrl: function(id) {
+    return "./beers/details/"+id+".json";
+  },
+
+  gotBeers: function(event, ironRequest) {
+    this.beer = ironRequest.response;
+    console.log("Beer", this.beer)
+    this.mainImg = this.beer.img;
+  },
+  setImage: function(evt) {
+    this.mainImg = evt.srcElement.src;
+  }
+})
+</script>

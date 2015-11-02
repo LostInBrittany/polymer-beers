@@ -1,0 +1,12 @@
+{
+  "alcohol": 7.5,
+  "availability": "Year round",
+  "brewery": "Rochefort Brewery (Brasserie de Rochefort)",
+  "description": "Reddish colour, almost like autumn leaves, very consistent texture with a slightly spicy aroma and an intense taste of caramel, fruit, and hints of raisins. It is only brewed about once per year, representing approximately 1% of total beer production, thus is quite difficult to obtain.",
+  "id": "TrappistesRochefort6",
+  "img": "beers/img/TrappistesRochefort6.jpg",
+  "label": "beers/img/TrappistesRochefort6-label.png",
+  "name": "Rochefort 6",
+  "serving": "Serve in a Snifter",
+  "style": "Trappiste"
+}

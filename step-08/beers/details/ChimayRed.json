@@ -1,0 +1,12 @@
+{
+  "alcohol": 7,
+  "availability": "Year round",
+  "brewery": "Bi\u00e8res de Chimay",
+  "description": "This Trappist beer possesses a beautiful coppery colour that makes it particularly attractive. Topped with a creamy head, it gives off a slight fruity apricot smell from the fermentation. The aroma felt in the mouth is a balance confirming the fruit nuances revealed to the sense of smell. This traditional Belgian beer is best savoured at cellar temperature ",
+  "id": "ChimayRed",
+  "img": "beers/img/ChimayRed.jpg",
+  "label": "beers/img/ChimayRed-label.png",
+  "name": "Chimay Rouge",
+  "serving": "Serve in a Snifter at Cool - (8-12C/45-54F)",
+  "style": "Belgian-Style Dubbel"
+}

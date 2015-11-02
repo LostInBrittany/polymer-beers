@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en" ng-app>
+<head>
+  <meta charset="utf-8">
+  <title>Polymer Beer Gallery</title>
+  <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+
+
+  <!-- Polyfill Web Components support for older browsers -->
+  <script src="/bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+
+  <!-- Import `beer-list` element -->
+  <link rel="import" href="elements/beer-list.html">
+  <link rel="import" href="elements/beer-details.html">
+  <link rel="import" href="elements/routing.html">
+
+
+  <!-- Import iron-pages -->
+  <link rel="import" href="/bower_components/iron-pages/iron-pages.html">
+
+</head>
+<body unresolved>
+  <template is="dom-bind" id="app">
+    <div>
+      <iron-pages attr-for-selected="data-route" selected="{{route}}">
+        <!-- If route is "beers" we show the list of beers -->
+        <div data-route="beers"  class="container">
+          <beer-list></beer-list>
+        </div>
+
+        <!-- If route is "beer" we show the detail of that beer -->
+        <beer-details data-route="beer" id="{{params.name}}"></beer-details>
+      </iron-pages>
+
+
+    </div>
+  </template>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!-- Import Polymer library -->
+<link rel="import" href="/bower_components/polymer/polymer.html">
+
+
+
+<dom-module id="beer-list-item">
+  <template>
+    <style>
+      .beer {
+        margin: 10px;
+        padding: 10px;
+        border: solid 1px black;
+        border-radius: 10px;
+        min-height: 150px;
+      }
+      .el-img {
+        max-height: 100px;
+      }
+      .el-alcohol {
+        clear:both;
+      }
+    </style>
+    <div id="{{id}}" class="beer clearfix">
+      <img class="pull-right el-img" src="{{img}}">
+      <a  href="{{url}}"><h2 class="el-name"><span>{{name}}</span></h2></a>
+      <p class="el-description">{{description}}</p>
+      <p class="pull-right el-alcohol">Alcohol content: <span>{{alcohol}}</span>%</p>
+    </div>
+  </template>
+</dom-module>
+
+<script>
+Polymer({
+  is: 'beer-list-item',
+
+  properties: {
+    id: String,
+    name: String,
+    description: String,
+    img: String,
+    alcohol: String,
+    url: {
+      type: String,
+      computed: "getUrl(id)"
+    }
+  },
+  getUrl: function(id) {
+    return "/beer/"+id
+  }
+})
+</script>

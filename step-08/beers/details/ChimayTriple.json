@@ -1,0 +1,12 @@
+{
+  "alcohol": 10.5,
+  "availability": "Year round",
+  "brewery": "Bi\u00e8res de Chimay",
+  "description": "Chimay Triple, with its typical golden colour, its slightly hazy appearance and its fine head is especially characterised by its aroma which results from an agreeable combination of fresh hops and yeast. The beers flavour, as sensed in the mouth, comes from the smell of hops: above all it is the fruity notes of muscat and raisins that give this beer a particularly attractive aroma. The aroma complements the touch of bitterness. There is no acidity, but an after-bitterness which melts in the mouth. This top fermented Trappist beer, refermented in the bottle, is not pasteurised.",
+  "id": "ChimayTriple",
+  "img": "beers/img/ChimayTriple.jpg",
+  "label": "beers/img/ChimayTriple-label.png",
+  "name": "Chimay Tripel",
+  "serving": "Serve in a Snifter at Cool - (8-12C/45-54F)",
+  "style": "Belgian-Style Tripel"
+}

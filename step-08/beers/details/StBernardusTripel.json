@@ -1,0 +1,12 @@
+{
+  "alcohol": 8.0,
+  "availability": "Year round",
+  "brewery": "Brasserie St. Bernardus",
+  "description": "This beer, with high fermentation, has a pale amber colour and a flowery, fruity taste with a harmonious balance between sweet and sour. This beer has a thick and vivid froth and strikes its balanced taste with a delicate bitterness.",
+  "id": "StBernardusTripel",
+  "img": "beers/img/StBernardusTripel.jpg",
+  "label": "beers/img/StBernardusTripel-label.png",
+  "name": "St Bernardus Tripel",
+  "serving": "Serve in a Snifter",
+  "style": "Belgian-Style Tripel"
+}

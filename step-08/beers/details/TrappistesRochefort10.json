@@ -1,0 +1,12 @@
+{
+  "alcohol": 11.3,
+  "availability": "Year round",
+  "brewery": "Rochefort Brewery (Brasserie de Rochefort)",
+  "description": "The top product from the Rochefort Trappist brewery. Dark colour, full and very impressive taste. Strong plum, raisin, and black currant palate, with ascending notes of vinousness and other complexities.",
+  "id": "TrappistesRochefort10",
+  "img": "beers/img/TrappistesRochefort10.jpg",
+  "label": "beers/img/TrappistesRochefort10-label.png",
+  "name": "Rochefort 10",
+  "serving": "Serve in a Goblet at Cellar - (12-14C/54-57F)",
+  "style": "Trappiste"
+}

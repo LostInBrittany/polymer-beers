@@ -1,0 +1,12 @@
+{
+  "alcohol": 9.2,
+  "availability": "Year round",
+  "brewery": "Rochefort Brewery (Brasserie de Rochefort)",
+  "description": "A dry but rich flavoured beer with complex fruity and spicy flavours.",
+  "id": "TrappistesRochefort8",
+  "img": "beers/img/TrappistesRochefort8.jpg",
+  "label": "beers/img/TrappistesRochefort8-label.png",
+  "name": "Rochefort 8",
+  "serving": "Serve in a Snifter",
+  "style": "Trappiste"
+}

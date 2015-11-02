@@ -1,0 +1,12 @@
+{
+  "alcohol": 8.5,
+  "availability": "Year round",
+  "brewery": "Brasserie Affligem (Heineken)",
+  "description": "The king of the abbey beers. It is amber-gold and pours with a deep head and original aroma, delivering a complex, full bodied flavour. Pure enjoyment! Secondary fermentation in the bottle.",
+  "id": "AffligemTripel",
+  "img": "beers/img/AffligemTripel.jpg",
+  "label": "beers/img/AffligemTripel-label.png",
+  "name": "Affligem Tripel",
+  "serving": "Serve in a Snifter",
+  "style": "Belgian-Style Tripel"
+}
