@@ -6,7 +6,7 @@ Now we are going to have two different "pages" (or *views*) in our Polymer Beers
 
 We are going to create a `beer-detail` component that calls to a *beer details* service (or in these case, a set of *beer details* JSON files) to recover and show more information on the chosen beer.
 
-![Screenshot](/img/step-08_01.jpg)
+![Screenshot](/img/step-08_02.jpg)
 
 The template includes more beer properties, found in the detailed JSON file for each beer.
 The *iron-ajax* calls the file according to the beer id.
