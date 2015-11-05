@@ -1,12 +1,12 @@
 # ![](/img/logo-25px.png) Polymer Beers - Polymer tutorial - Step 07
 
-What if we wanted to show more details about a beer when we click on it? We can imagine the opening another panel with the detailed information.
+What if we wanted to show more details about a beer when we click on it? We can imagine opening another panel with the detailed information.
 
 In AngularJS we would get this behaviour by using a router, and defining the routing conditions in the global application definition.
 
 Polymer hasn't got a router element as powerful as Angular's one... because it doesn't need it!
 
-A part of the beauty of the component approach is that it works very well with external libraries. And in JavaScript there area (metric) ton of routers that we can use. My personal favorite is [visionmedia's page.js](https://visionmedia.github.io/page.js/), a tiny Express-inspired client-side router
+A part of the beauty of the component approach is that it works very well with external libraries. And in JavaScript there are tons of routers that we can use. My personal favorite is [visionmedia's page.js](https://visionmedia.github.io/page.js/), a tiny Express-inspired client-side router
 
 So we are going to use *page.js* to do the routing side of our app without having to change things in our elements.
 
@@ -47,7 +47,7 @@ In order to use *page.js* the first step would be to add it to our dependencies 
 
 As usual, and for the needs of the tutorial, *page.js* dependencies are already in `/bower_components`
 
-Then we create a new Polymer element, `routing.html`, that will call *page.js* an define the routing.
+Then we create a new Polymer element, `routing.html`, that will call *page.js* and define the routing.
 
 ```html
 <!-- Import Polymer library -->
@@ -173,4 +173,4 @@ Let's see what happens here:
 
 * when the router detects a `/beer/:name` URL fragment, it sets the `route` to `beer` and puts the beer name inside `params`. The `iron-pages` components takes then the `route` value, `beer`, and compared them with the value of the `data-route` attribute of its only child. As it coincides, that children is shown, and the label uses `param.name` to get the name of the selected beer.
 
-![Screenshot](/img/step-07_01.jpg) 
+![Screenshot](/img/step-07_01.jpg)

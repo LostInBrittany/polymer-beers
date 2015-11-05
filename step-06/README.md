@@ -24,7 +24,7 @@ Our new dataset is now a list of 11 beers stored in JSON format in the `step-06/
 
 ## `iron-ajax` element
 
-We will use the `iron-ajax` to  to make an HTTP request to your web server to fetch the data in the `app/beers/beers.json` file.
+We will use the `iron-ajax` to make an HTTP request to your web server to fetch the data in the `app/beers/beers.json` file.
 
 `iron-ajax` is one of the elements in the [Polymer iron elements](https://elements.polymer-project.org/browse?package=iron-elements) collection, a set of visual and non-visual utility elements. They include elements for working with layout, user input, selection, and scaffolding apps.
 

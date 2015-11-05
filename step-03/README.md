@@ -1,7 +1,7 @@
 # ![](/img/logo-25px.png) Polymer Beers - Polymer tutorial - Step 03
 
-In this step we are going to use create our first Polymer elements, a simple custom `beer-list`.
-This element will use a JavaScript array as model and automatically generate a `beer-list-element` for each beer in the array.
+In this step we are going to create a more complex Polymer element, a custom `beer-list`.
+This element will use a JavaScript array as model and automatically generate a `beer-list-item` for each beer in the array.
 
 
 ## Creating the element file
@@ -35,7 +35,7 @@ We begin by creating a new file for the element, `elements/beer-list.html`. Insi
 ## Defining the model
 
 We are going to modelize our (ever growing) beer collection as a JavaScript array in our `beer-list` element.
-We will use the element's `ready` function, a functon that is called when the element has been loaded and instanciated, and that is often used used to initialize variables.
+We will use the element's `ready` function, a function that is called when the element has been loaded and instanciated, and that is often used to initialize variables.
 
 ```html
 <script>

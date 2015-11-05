@@ -5,7 +5,7 @@ This is the initial step of the tutorial. In this step you won't need to code, e
 
 Remember, to see the app running in a browser, open a separate terminal/command line tab or window, go to the project directory and then run `python -m SimpleHTTPServer` or `node ./scripts/web-server.js` to start the web server. Now, open a browser window for the app and navigate to http://localhost:8000/app/ to see the current state of the app.
 
-In order to illustrate how Angular enhances standard HTML, you will create a purely static HTML page and then examine how we can turn this HTML code into a template that Polymer will use to dynamically display the same result with any set of data.
+In order to illustrate how Polymer enhances standard HTML, you will create a purely static HTML page and then examine how we can turn this HTML code into a template that Polymer will use to dynamically display the same result with any set of data.
 
 In this step you will add some basic information about two beers to an HTML page.
 
@@ -19,7 +19,7 @@ As you can see, the `app` directory have several sub-directories:
 
 ## Dependencies
 
-To simplify thrid-party dependencies management, a custom `.bowerrc` file is used to ensure that both the application version in `app` folder and the solutions in the `step-XX` folders use the same `bower_components` folder at the root of the project.
+To simplify third-party dependencies management, a custom `.bowerrc` file is used to ensure that both the application version in `app` folder and the solutions in the `step-XX` folders use the same `bower_components` folder at the root of the project.
 
 All the dependencies have been included in the git repository to be able to run the tutorial fully offline.
 

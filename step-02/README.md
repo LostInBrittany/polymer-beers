@@ -1,6 +1,6 @@
 # ![](/img/logo-25px.png) Polymer Beers - Polymer tutorial - Step 02
 
-In this step we are going to use our first Polymer elements, a very simple custom `beer-list-item`.
+In this step we are going to use our first Polymer element, a very simple custom `beer-list-item`.
 By using it you will see how easily you can add Polymer widgets to your normal web applications.
 
 
