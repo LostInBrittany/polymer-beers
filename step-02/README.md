@@ -53,7 +53,7 @@ Using Polymer elements is quick and painless, you only need to follow three step
 
 You're going to replace the `<ul>` and the `<li>` items that you created in [step-01](../step-01/) with two `beer-list-item` elements, one for each beer.
 
-In order to do it, you need to follow the steps previously described in *Using Polymer elements*, loading the polyfill and inporting the `beer-list-item` element in the header section of `index.html` and then using the newly registered `<beer-list-item>` in the HTML body for both beers.
+In order to do it, you need to follow the steps previously described in *Using Polymer elements*, loading the polyfill and importing the `beer-list-item` element in the header section of `index.html` and then using the newly registered `<beer-list-item>` in the HTML body for both beers.
 
 ![Screenshot](/img/step-02_01.jpg)
 
@@ -62,7 +62,7 @@ In order to do it, you need to follow the steps previously described in *Using P
 
 Try modifying the element to show the beer name in red.
 
-You will see that you need to do it inside the `style` block of the `dom-model` definition for the element. Following the encapsulation principe, global CSS rules don't pass the element frontier.
+You will see that you need to do it inside the `style` block of the `dom-model` definition for the element. Following the encapsulation principle, global CSS rules don't pass the element frontier.
 
 ## Summary
 
