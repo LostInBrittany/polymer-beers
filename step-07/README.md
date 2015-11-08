@@ -153,7 +153,7 @@ Then we use it:
 <template is="dom-bind" id="app">
   <div>
     <iron-pages attr-for-selected="data-route" selected="{{route}}">
-      <h1 data-route="beer">You have clicked on <span>{{params.name}}</span></h1>
+      <h1 data-route="beer">You have clicked on {{params.name}}</h1>
     </iron-pages>
 
     <div class="container">

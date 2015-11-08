@@ -118,10 +118,10 @@ And use it in the body:
 In the element's `dom-model` you have access to the beers variable, you can then get it's size and show it after the beers:
 
 ```html
-<div>Number of beers in list: <span>{{beers.length}}</span></div>
+<div>Number of beers in list: {{beers.length}}</div>
 ```
 
-*Note: unlike precedent Polymer versions, the double curly-brake syntax (`{{}}`) can only be used as the only element inside a DOM node. So we need to surround it with a `span` tag.*
+*Note: unlike precedent Polymer versions, Polymer 1.0 required the double curly-brake syntax (`{{}}`) to be used as the only element inside a DOM node. So the precedent line needed to be rewritten as `<div>Number of beers in list: <span>{{beers.length}}</span></div>`. This restriction was lifted on Polymer 1.2.*
 
 ### Play with `dom-repeat`
 

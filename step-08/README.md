@@ -20,7 +20,7 @@ The *iron-ajax* calls the file according to the beer id.
 
     <div id="{{beer.id}}" class="beer clearfix">
       <a href="#/beers"><img class="pull-right back" src="../img/back.png"></a>
-      <h1 class="name"><span>{{beer.name}}</span></h1>
+      <h1 class="name">{{beer.name}}</h1>
       <img class="pull-right img" src="{{mainImg}}">
       <p class="description">{{beer.description}}</p>
 
@@ -36,7 +36,7 @@ The *iron-ajax* calls the file according to the beer id.
         <li>
           <dl>
             <dt>Alcohol content</dt>
-            <dd><span>{{beer.alcohol}}</span>%</dd>
+            <dd>{{beer.alcohol}}%</dd>
           </dl>
         </li>
         [...]

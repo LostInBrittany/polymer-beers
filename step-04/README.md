@@ -45,7 +45,7 @@ under it to show the current value of `filterText`:
 
 ```html
 <div>Search: <input value="{{filterText::input}}"></div>
-<div>Current search: <span>{{filterText}}</span></div>
+<div>Current search: {{filterText}}</div>
 
 ```
 

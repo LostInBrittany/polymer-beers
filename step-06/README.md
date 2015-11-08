@@ -63,6 +63,7 @@ Then we can place an `iron-ajax` element in `beer-list` to request the beer list
       params='{}'
       handle-as="json"
       on-response="gotBeers"
+      on-error="gotError"
       debounce-duration="300"></iron-ajax>
 ```
 
@@ -112,7 +113,7 @@ Then we modify the template:
       <img class="pull-right el-img" src="{{img}}">
       <h2 class="el-name">{{name}}</h2>
       <p class="el-description">{{description}}</p>
-      <p class="pull-right el-alcohol">Alcohol content: <span>{{alcohol}}</span>%</p>
+      <p class="pull-right el-alcohol">Alcohol content: {{alcohol}}%</p>
     </div>
   </template>
 ```

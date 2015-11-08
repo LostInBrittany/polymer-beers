@@ -25,7 +25,7 @@
           <div>
             <input type="checkbox" checked="{{descendingSort::change}}" name="sortingOrder"> Descending sort
           </div>
-          <div>Number of results: <span>{{currentBeers}}</span></div>
+          <div>Number of results: {{currentBeers}}</div>
         </div>
         <div class="col-md-10">
           <div class="beers">
@@ -47,6 +47,7 @@
       params='{}'
       handle-as="json"
       on-response="gotBeers"
+      on-error="gotError"
       debounce-duration="300"></iron-ajax>
   </template>
 </dom-module>
@@ -110,6 +111,9 @@
     },
     gotBeers: function(event, ironRequest) {
       this.beers = ironRequest.response;
+    ,
+    gotError: function(event, ironRequest){
+      this.error = event;
     }
   });
 </script>
