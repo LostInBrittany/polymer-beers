@@ -14,7 +14,7 @@ Follow the tutorial to see how Polymer makes browsers smarter — without the us
 
 + See examples of how to use client-side data binding to build dynamic views of data that change immediately in response to user actions.
 + See how Polymer keeps your views in sync with your data without the need for DOM manipulation.
-+ Learn how to technical elements to make common web tasks, such as getting data into your app, easier.
++ Learn how to build technical elements to make common web tasks, such as getting data into your app, easier.
 
 When you finish the tutorial you will be able to:
 
