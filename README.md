@@ -4,7 +4,7 @@
 
 ![Logo](/img/logo-500px.png)
 
-I have built this [PolymerBeers](https://github.com/LostInBrittany/polymer-beers) tutorial as a quick entry point to [Polymer 1.0](https://www.polymer-project.org/1.0/). I've based it on a similar tutorial I did for [AngularJS](http://angular.io), [Angular Beers](https://github.com/LostInBrittany/angular-beers).
+I have built this [PolymerBeers](https://github.com/LostInBrittany/polymer-beers) tutorial as a quick entry point to [Polymer 1.0](https://www.polymer-project.org/1.0/). I've based it on a similar tutorial I did for [AngularJS](http://angular.io), [Angular Beers](https://github.com/LostInBrittany/angular-beers).  
 
 For the last several years, I've taught a web-development module in an Engineering School with a rather restrictive network. As I plan to use this tutorial in next year module, in order to explain Polymer to our students, I needed a tutorial that could be played without network acces, i.e. without Bower or Grunt. So *Polymer Beers* needed to be able to be done even behind a very restrictive proxy, and all the dependencies are included inside the git project.
 
