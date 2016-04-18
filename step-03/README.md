@@ -10,7 +10,7 @@ We begin by creating a new file for the element, `elements/beer-list.html`. Insi
 
 ```html
 <!-- Our beer-list will generate `beer-list-item` elements, so we import it -->
-<link rel="import" href="beer-list-item.html">
+<link rel="import" href="./beer-list-item.html">
 
 <dom-module id="beer-list">
   <template>
@@ -34,8 +34,8 @@ We begin by creating a new file for the element, `elements/beer-list.html`. Insi
 
 ## Defining the model
 
-We are going to modelize our (ever growing) beer collection as a JavaScript array in our `beer-list` element.
-We will use the element's `ready` function, a function that is called when the element has been loaded and instanciated, and that is often used to initialize variables.
+We are going to model our (ever growing) beer collection as a JavaScript array in our `beer-list` element.
+We will use the element's `ready` function, a function that is called when the element has been loaded and instantiated, and that is often used to initialize variables.
 
 ```html
 <script>
@@ -44,6 +44,12 @@ We will use the element's `ready` function, a function that is called when the e
     is: "beer-list",
     // add properties and methods on the element's prototype
     properties: {
+      beers: {
+        type: "Array",
+        // When initializing a property to an object or array value, use a function to ensure that each element
+        // gets its own copy of the value, rather than having an object or array shared across all instances of the element
+        value: "function() { return []; }"
+      }
     },
     ready: function() {
       this.beers = [
@@ -68,14 +74,14 @@ We will use the element's `ready` function, a function that is called when the e
 </script>
 ```
 
-So now we have a `beers` variable in our element, that can be access in the JS side using `this.beers` and in the `dom-model` side using  `{{beers}}`.
+So now we have a `beers` property in our element, that can be access in the JS side using `this.beers` and in the `dom-model` side using  `{{beers}}`.
 
 As you can see, for each beer we have the `name` and `description` properties that `beer-list-item` needs, and also added an `alcohol` property that our element isn't capable to use yet.
 
 
 ## Data-binding
 
-A reasonable thing to do for our `beer-list` would be to spawn a `beer-list-element` for each beer in the `beers` array. How can we do that? By using Polymer's [data binding helper element](https://www.polymer-project.org/1.0/docs/devguide/templates.html), concretly a template repeater (dom-repeat):
+A reasonable thing to do for our `beer-list` would be to spawn a `beer-list-element` for each beer in the `beers` array. How can we do that? By using Polymer's [data binding helper element](https://www.polymer-project.org/1.0/docs/devguide/templates.html), concretely a template repeater (`dom-repeat`):
 
 ```html
 <dom-module id="beer-list">
@@ -93,6 +99,13 @@ A reasonable thing to do for our `beer-list` would be to spawn a `beer-list-elem
 </dom-module>
 ```
 
+The template repeater is a specialized template that binds to an array. It creates one instance of the template’s contents for each item in the array. It adds two properties to the binding scope for each instance:
+
+- `item`: The array item used to create this instance
+- `index`: The index of item in the array
+
+For more information about the template repeater, see the [Polymer documentation](https://www.polymer-project.org/1.0/docs/devguide/templates.html#dom-repeat).
+
 ## Using the new element
 
 In the `index.html` file we aren't going to use directly `beer-list-item` elements anymore, but a simple `beer-list`.
@@ -100,7 +113,7 @@ Let's replace the import of `beer-list-item` by an import of `beer-list`:
 
 ```html
 <!-- Import `beer-list` element -->
-<link rel="import" href="elements/beer-list.html">
+<link rel="import" href="./elements/beer-list.html">
 ```
 
 And use it in the body:
