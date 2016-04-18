@@ -4,11 +4,11 @@ What if we wanted to show more details about a beer when we click on it? We can 
 
 In AngularJS we would get this behaviour by using a router, and defining the routing conditions in the global application definition.
 
-Polymer hasn't got a router element as powerful as Angular's one... because it doesn't need it!
+Until recently there wasn't an official routing solution for Polymer. When they needed to add a routing component to Polymer, most people either use a non-official component like [excess-router](https://github.com/atotic/excess-router) or packaged an external router library like [visionmedia's page.js](https://visionmedia.github.io/page.js/) inside a custom component.
 
-A part of the beauty of the component approach is that it works very well with external libraries. And in JavaScript there are tons of routers that we can use. My personal favorite is [visionmedia's page.js](https://visionmedia.github.io/page.js/), a tiny Express-inspired client-side router
+Since Polymer 1.4 an official solution for routing on Polymer has been released: [carbon-route](https://elements.polymer-project.org/elements/carbon-route), an element that enables declarative, self-describing routing for a web app.
 
-So we are going to use *page.js* to do the routing side of our app without having to change things in our elements.
+So we are going to use *carbon-route* to do the routing side of our app without having to change things in our elements.
 
 ## Auto-binding magic
 
@@ -24,12 +24,41 @@ The first thing we are going to do is giving our main page some magic Polymer po
 </body>
 ```
 
-Now inside the `app` template we can use Polymer bindings, and the template is automatically instanciated when the application is loaded. The `unresolved` attribute says to the body to hide its contents until Polymer is fully charged.
+Polymer data binding is only available in templates that are managed by Polymer. So data binding works inside an element’s local DOM template, but not for elements placed in the main document.
 
+To use Polymer bindings without defining a new custom element, use the `dom-bind` element. This template immediately stamps its contents into the main document. Data bindings in an auto-binding template use the template itself as the binding scope.
+
+Now inside the `app` template we can use Polymer bindings, and the template is automatically instantiated when the application is loaded. The `unresolved` attribute says to the body to hide its contents until Polymer is fully charged.
+
+In order to set initial values to variables or two manipulate the attributes, you need to use a `<script>` block:
+
+```html
+<body unresolved>
+  <template is="dom-bind" id="app">
+    <div class="container">
+      <beer-list></beer-list>
+    </div>
+  </template>
+</body>
+<script>
+  var app = document.querySelector('#app');
+
+  // here you could set variables inside the template scope:
+  //  app.toto = "test"
+  // In the template part you could get or set the value of the variable:
+  // {{toto}}
+
+  // The dom-change event signifies when the template has stamped its DOM.
+  app.addEventListener('dom-change', function() {
+    // auto-binding template is ready.
+    // here you can do operations that need to happen when the template is ready
+  });
+</script>
+```
 
 ## Defining the routes
 
-In order to use *page.js* the first step would be to add it to our dependencies using bower, i.e. adding it to the `bower.json` file.
+In order to use *carbon-route* the first step would be to add it to our dependencies using bower, i.e. adding it to the `bower.json` file.
 
 ```json
 {
@@ -37,63 +66,86 @@ In order to use *page.js* the first step would be to add it to our dependencies 
   "version": "0.0.0",
   "license": "http://polymer.github.io/LICENSE.txt",
   "dependencies": {    
-    "bootstrap": "~3.3.4",
-    "polymer": "~1.0.0",
-    "iron-ajax": "PolymerElements/iron-ajax#^1.0.0",
-    "page.js": "visionmedia/page.js#~1.6.0"
+    "bootstrap": "~3.3.6",
+    "polymer": "~1.4.0",
+    "iron-ajax": "~1.2.0",
+    "carbon-route": "~0.8.4"
   }
 }
 ```
 
-As usual, and for the needs of the tutorial, *page.js* dependencies are already in `/bower_components`
+As usual, and for the needs of the tutorial, *carbon-route* dependencies are already in `/bower_components`
 
-Then we create a new Polymer element, `routing.html`, that will call *page.js* and define the routing.
 
-```html
-<!-- Import Polymer library -->
-<link rel="import" href="/bower_components/polymer/polymer.html">
+## `<carbon-route>` and `<carbon-location>`
 
-<!-- Load page.js -->
-<script src="/bower_components/page/page.js"></script>
+In order to use  *carbon-route* for your application route, you need to understand the two elements offered by this library:
+`carbon-route` and `carbon-location`
 
-<script>
-  window.addEventListener('WebComponentsReady', function() {
-    // Grab a reference to our auto-binding template
-    // and give it some initial binding values
-    // Learn more about auto-binding templates at http://goo.gl/Dx1u2g
-    var app = document.querySelector('#app');
 
-    // We use Page.js for routing. This is a Micro
-    // client-side router inspired by the Express router
-    // More info: https://visionmedia.github.io/page.js/
-    page('/beers', function (data) {
-      app.route = 'beers';
-    });
-    page('/beer/:name', function (data) {
-      app.route = 'beer';
-      app.params = data.params;
-      console.log(data.params)
-    });
-    page.redirect('*', '/beers');
-    // add #! before urls
-    page({
-      hashbang: true
-    });
-  });
-</script>
+### `<carbon-route>` and `<carbon-location>`
+
+`<carbon-route>` simply matches an input path against a specified pattern. The input path doesn't come necessarily from the URL, it's a  normal Polymer variable boun d to the  `<carbon-route>`'s `route` attribute. Here you have an example:
+
+```
+<carbon-route route="{{route}}" pattern="/test" active="{{active}}"></carbon-route>
 ```
 
-As many Express-like routers, Page.js allows to define routes by matching rules on the URL fragment (the URL content beginning with the hash separator `#`).
-In our example, we declare two routes, one for the beer list (URL fragment `#/beers`) and another for the individual beers (URL fragments following the '/beer/:name' schema). For each of these routes, we set properties in the `app` object, properties that can be read from the main app.
-A third route (defined with `page.redirect('*', '/beers');`) redirects trafic for other URL fragments to the beer list.
+If `route` variable matches `/test` pattern, `<carbon-route>` will set `active` to `true`, else `active` will be `false`.
 
+`<carbon-route>` deals with hierarchical, slash separated paths. You give it a pattern, and it tells you when the input matches.
+
+If the pattern contains any variables, like `/:page` then the extracts that portion of the matched URL and exposes it via the `data` object.
+
+
+### `<carbon-location>`
+
+`<carbon-route>` doesn’t know about the URL, it just knows about paths. While you’ll have many `<carbon-route>` elements in your app, there’s only one URL bar. The URL is global. So we’ve got an element whose single responsibility is connecting the URL to your app. We call this element `<carbon-location>`, and it exposes a route property suitable for binding into a `<carbon-route>`, like so:
+
+```html
+<carbon-location route="{{route}}"></carbon-location>
+<carbon-route
+    route="{{route}}"
+    pattern="/:page"
+    data="{{data}}"
+    tail="{{tail}}">
+</carbon-route>
+```
+
+For client-side applications, changing the URL is a risky business, you need a server side application serving the right content.
+Helpfully, `<carbon-location>` provides the `use-hash-as-path` option, which will place the route path on the URL fragment
+(the URL content beginning with the hash separator `#`).
+
+In our example, we declare two routes, one for the beer list (URL fragment `#/beers`) and another for the individual beers
+(URL fragments following the '/beer/:id' schema):
+
+```html
+<!--
+  `carbon-location binds with the URL and produces a route for  carbon-route
+  elements to consume. Since this application needs to run without server
+  `cooperation we'll use the hash portion of the URL for our route paths.
+-->
+<carbon-location route="{{route}}" use-hash-as-path></carbon-location>
+
+<!--
+  carbon-routes parse route paths based on the their `pattern`.
+  Parameters are extracted into the `data` object. The rest of the path that
+  comes after the `pattern` is put into the `tail` object, which can be
+  passed to the `route` property of downstream carbon-routes.
+-->
+<carbon-route route="{{route}}" pattern="/beers" active="{{beerListActive}}"></carbon-route>
+<carbon-route route="{{route}}" pattern="/beer/:id" data="{{beerId}}" active="{{beerIdActive}}"></carbon-route>
+```
 
 ## Hyperlinking the beers
 
 In order to get more details on a beer when we click on its name, we need to put the name inside a `<a>` tag that will send us to the route corresponding to that beer.
 
 
-In Polymer 1.x the binding annotation must currently span the entire text content of a node, or the entire value of an attribute. So string concatenation is not supported. Notations that were usual in older versions of Polymer, like `<a href="/beer/{{id}}"><h2 class="el-name">{{name}}</h2></a>` are not legal in Polymer 1.x.  We need to use a [computed property](https://www.polymer-project.org/1.0/docs/devguide/properties.html#computed-properties), like `<a href="{{url}}"><h2 class="el-name">{{name}}</h2></a>`.
+In Polymer 1.0 the binding annotation must currently span the entire text content of a node, or the entire value of an attribute. So string concatenation is not supported. Notations that were usual in older versions of Polymer, like `<a href="#/beer/{{id}}"><h2 class="el-name">{{name}}</h2></a>` are not legal in Polymer 1.x.  We need to use a [computed property](https://www.polymer-project.org/1.0/docs/devguide/properties.html#computed-properties), like `<a href="{{url}}"><h2 class="el-name">{{name}}</h2></a>`.
+
+In Polymer 1.4 this restriction is lift, and you could simple use `<a href="#/beer/{{id}}"><h2 class="el-name">{{name}}</h2></a>`,
+but I keep here the *computed property* way of doing thing to show how computed properties work.
 
 So we define a `url` computed property in our element:
 
@@ -109,7 +161,7 @@ Polymer({
     }
   },
   getUrl: function(id) {
-    return "/beer/"+id
+    return "#/beer/"+id
   }
 })
 ```
@@ -135,42 +187,57 @@ And then we use this property in the hyperlink element:
 
 ## Showing current choice
 
-To keep the learning curve gentle, in the current step we are only showing a label when a beer have been selected.
+To keep the learning curve gentle, in the current step we are only showing messages informing use of what beer (if any) is currently selected.
 Later in next step we will see how to show a different page when the beer detail is selected.
 
-To show a label when a beer have been selected, we are going to use Polymer's [iron-pages](https://elements.polymer-project.org/elements/iron-pages) element. *iron-pages* is an element that shows only one of its children, according to a `selected` property.
+To show a label when a beer have been selected, we are going to use Polymer's [conditional templates](https://www.polymer-project.org/1.0/docs/devguide/templates.html#dom-if). Conditional templates (or `dom-if`) allow to conditionally
+stamp elements into the DOM according to boolean properties.  The `dom-if` template stamps its contents into the DOM only when its `if`
+property becomes truthy.
 
-In order to use it, we do the import in `index.html`:
+We want to monitor the variables set by *carbon-route*, so we can define two blocks:
 
-```javascript
-<!-- Import iron-pages -->
-<link rel="import" href="/bower_components/iron-pages/iron-pages.html">
+```html
+<div class="container">
+  <div class="alert alert-warning" role="alert">Variable `beerListActive` = {{beerListActive}}</div>
+  <template is="dom-if" if="{{beerListActive}}">
+    <div class="alert alert-success" role="alert">You have selected the main beer list (URL fragment = #/beers)</div>
+  </template>
+</div>
+
+<div class="container">
+  <div class="alert alert-warning" role="alert">Variable `beerIdActive` = {{beerIdActive}}</div>
+  <template is="dom-if" if="{{beerIdActive}}">
+    <div class="alert alert-success" role="alert">You have selected a beer: {{beerId.id}}</div>
+  </template>
+</div>
 ```
-
-Then we use it:
-
-```javascript
-<template is="dom-bind" id="app">
-  <div>
-    <iron-pages attr-for-selected="data-route" selected="{{route}}">
-      <h1 data-route="beer">You have clicked on {{params.name}}</h1>
-    </iron-pages>
-
-    <div class="container">
-      <beer-list></beer-list>
-    </div>
-  </div>
-</template>
-```
-
-Its attribute `attr-for-selected` tells us what attribute from its children is used for selecting, the selecting key. Here we are looking to the `data-route` attribute on its children.
-
-The `selected` attribute tells us the value of the selecting attribute. We are binding it to the `route` property, which (as you may remember) is set by the router.
 
 Let's see what happens here:
 
-* when the router detects a `/beers` URL fragment, it sets the `route` to `beers`. The `iron-pages` components takes then the `route` value, `beers`, and compared them with the value of the `data-route` attribute of its only child. As it doesn't coincide, the child isn't shown.
+* when the router detects a `/beers` URL fragment, it sets the `beerListActive` to `true`. The first `dom-if` template then shows its content.
 
-* when the router detects a `/beer/:name` URL fragment, it sets the `route` to `beer` and puts the beer name inside `params`. The `iron-pages` components takes then the `route` value, `beer`, and compared them with the value of the `data-route` attribute of its only child. As it coincides, that children is shown, and the label uses `param.name` to get the name of the selected beer.
+* when the router detects a `/beer/:id` URL fragment, it sets the `beerIdActive` to `true` and `beerId` to `{id: the_id_portion}` where `the_id_portion` is the part of the fragment after `/beer/`. The second `dom-if` template, that uses `beerIdActive` as condition, shows its content
+
+We haven't any default routing. What if we want to detect an initial unsupported route and redirect the page to the main `#/beers` route? To do it, we use the initialization block of the `dom-bind` template:
+
+
+```html
+<script>
+  var app = document.querySelector('#app');
+
+  // The dom-change event signifies when the template has stamped its DOM.
+  app.addEventListener('dom-change', function() {
+    // auto-binding template is ready.
+    this.async(function() {
+      // If the path is blank, redirect to /
+      if (!this.route.path) {
+        this.set('route.path', '/beers');
+      }
+    });
+  });
+</script>
+```
+
+
 
 ![Screenshot](/img/step-07_01.jpg)

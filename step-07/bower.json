@@ -7,6 +7,6 @@
     "polymer": "~1.4.0",
     "iron-ajax": "~1.2.0",
     "iron-pages": "~1.0.7",
-    "page.js": "visionmedia/page.js#~1.6.0"
+    "carbon-route": "~0.8.4"
   }
 }

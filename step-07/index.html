@@ -9,26 +9,72 @@
   <!-- Polyfill Web Components support for older browsers -->
   <script src="../../bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
 
+  <!-- Import `carbon-route` element -->
+  <link rel="import" href="../../bower_components/carbon-route/carbon-location.html">
+<link rel="import" href="../../bower_components/carbon-route/carbon-route.html">
+
   <!-- Import `beer-list` element -->
   <link rel="import" href="./elements/beer-list.html">
-  <link rel="import" href="./elements/routing.html">
-
 
   <!-- Import iron-pages -->
   <link rel="import" href="../../bower_components/iron-pages/iron-pages.html">
-  
+
 </head>
+
 <body unresolved>
   <template is="dom-bind" id="app">
-    <div>
-      <iron-pages attr-for-selected="data-route" selected="{{route}}">
-        <h1 data-route="beer">You have clicked on <span>{{params.name}}</span></h1>
-      </iron-pages>
 
-      <div class="container">
-        <beer-list></beer-list>
-      </div>
+    <!--
+      `carbon-location binds with the URL and produces a route for  carbon-route
+      elements to consume. Since this application needs to run without server
+      `cooperation we'll use the hash portion of the URL for our route paths.
+    -->
+    <carbon-location route="{{route}}" use-hash-as-path></carbon-location>
+
+    <!--
+      carbon-routes parse route paths based on the their `pattern`.
+      Parameters are extracted into the `data` object. The rest of the path that
+      comes after the `pattern` is put into the `tail` object, which can be
+      passed to the `route` property of downstream carbon-routes.
+    -->
+    <carbon-route route="{{route}}" pattern="/beers" active="{{beerListActive}}"></carbon-route>
+    <carbon-route route="{{route}}" pattern="/beer/:id" data="{{beerId}}" active="{{beerIdActive}}"></carbon-route>
+
+
+    <div class="container">
+      <div class="alert alert-warning" role="alert">Variable `beerListActive` = {{beerListActive}}</div>
+      <template is="dom-if" if="{{beerListActive}}">
+        <div class="alert alert-success" role="alert">You have selected the main beer list (URL fragment = #/beers)</div>
+      </template>
+    </div>
+
+    <div class="container">
+      <div class="alert alert-warning" role="alert">Variable `beerIdActive` = {{beerIdActive}}</div>
+      <template is="dom-if" if="{{beerIdActive}}">
+        <div class="alert alert-success" role="alert">You have selected a beer: {{beerId.id}}</div>
+      </template>
+    </div>
+
+    <div class="container">
+      <beer-list></beer-list>
     </div>
   </template>
+
+  <script>
+    var app = document.querySelector('#app');
+
+    // The dom-change event signifies when the template has stamped its DOM.
+    app.addEventListener('dom-change', function() {
+      // auto-binding template is ready.
+      this.async(function() {
+        // If the path is blank, redirect to /
+        if (!this.route.path) {
+          this.set('route.path', '/beers');
+        }
+      });
+    });
+
+  </script>
+
 </body>
 </html>
