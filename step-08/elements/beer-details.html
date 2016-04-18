@@ -74,21 +74,20 @@
       h1 {
         border-bottom: 1px solid gray;
       }
-
     </style>
 
     <div id="{{beer.id}}" class="beer clearfix">
       <a href="#/beers"><img class="pull-right back" src="../img/back.png"></a>
       <h1 class="name">{{beer.name}}</h1>
-      <img class="pull-right img" src="{{mainImg}}">
+      <img class="pull-right img" src="../../data/{{mainImg}}">
       <p class="description">{{beer.description}}</p>
 
       <ul class="beer-thumbs">
         <li>
-          <img src="{{beer.img}}" on-click="setImage">
+          <img src="../../data/{{beer.img}}" on-click="setImage">
         </li>
         <li>
-          <img src="{{beer.label}}" on-click="setImage">
+          <img src="../../data/{{beer.label}}" on-click="setImage">
         </li>
       </ul>
       <ul class="specs">
@@ -133,31 +132,29 @@
       on-response="gotBeers"
       debounce-duration="300"></iron-ajax>
   </template>
-  </template>
+  <script>
+    Polymer({
+      is: 'beer-details',
+
+      properties: {
+        id: String,
+        url: {
+          type: String,
+          computed: "getUrl(id)"
+        }
+      },
+      getUrl: function(id) {
+        return "../../data/beers/details/"+id+".json";
+      },
+
+      gotBeers: function(event, ironRequest) {
+        this.beer = ironRequest.response;
+        console.log("Beer", this.beer)
+        this.mainImg = this.beer.img;
+      },
+      setImage: function(evt) {
+        this.mainImg = evt.srcElement.src;
+      }
+    })
+  </script>
 </dom-module>
-
-<script>
-Polymer({
-  is: 'beer-details',
-
-  properties: {
-    id: String,
-    url: {
-      type: String,
-      computed: "getUrl(id)"
-    }
-  },
-  getUrl: function(id) {
-    return "./beers/details/"+id+".json";
-  },
-
-  gotBeers: function(event, ironRequest) {
-    this.beer = ironRequest.response;
-    console.log("Beer", this.beer)
-    this.mainImg = this.beer.img;
-  },
-  setImage: function(evt) {
-    this.mainImg = evt.srcElement.src;
-  }
-})
-</script>

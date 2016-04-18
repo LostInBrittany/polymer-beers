@@ -9,31 +9,84 @@
   <!-- Polyfill Web Components support for older browsers -->
   <script src="../../bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
 
+
+  <!-- Import `carbon-route` element -->
+  <link rel="import" href="../../bower_components/carbon-route/carbon-location.html">
+  <link rel="import" href="../../bower_components/carbon-route/carbon-route.html">
+
   <!-- Import `beer-list` element -->
   <link rel="import" href="./elements/beer-list.html">
   <link rel="import" href="./elements/beer-details.html">
-  <link rel="import" href="./elements/routing.html">
 
 
   <!-- Import iron-pages -->
   <link rel="import" href="../../bower_components/iron-pages/iron-pages.html">
 
 </head>
+
 <body unresolved>
+
+  <polymer-beers></polymer-beers>
+
+  <dom-module id="polymer-beers">
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <template>
+      <carbon-location route="{{route}}" use-hash-as-path></carbon-location>
+
+      <carbon-route route="{{route}}" pattern="/beers" active="{{beerListActive}}"></carbon-route>
+      <carbon-route route="{{route}}" pattern="/beer/:id" data="{{beerId}}" active="{{beerIdActive}}"></carbon-route>
+
+      <template is="dom-if" if="{{beerListActive}}">
+        <div class="container">
+          <beer-list></beer-list>
+        </div>
+      </template>
+
+
+      <template is="dom-if" if="{{beerIdActive}}">
+        <div class="container">
+          <beer-details id="{{beerId.id}}"></beer-details>
+        </div>
+      </template>
+
+    </template>
+    <script>
+      HTMLImports.whenReady(function () {
+        Polymer({
+          is: 'polymer-beers',
+          route:{
+            type: Object
+          },
+          attached: function() {
+            if (!this.route.path) {
+              this.set('route.path', '/beers');
+            }
+          }
+        });
+      });
+    </script>
+  </dom-module>
+
+
+  <!--
   <template is="dom-bind" id="app">
     <div>
       <iron-pages attr-for-selected="data-route" selected="{{route}}">
 
-        <!-- If route is "beers" we show the list of beers -->
         <div data-route="beers"  class="container">
           <beer-list></beer-list>
         </div>
 
-        <!-- If route is "beer" we show the detail of that beer -->
         <beer-details data-route="beer" id="{{params.name}}"></beer-details>
 
       </iron-pages>
     </div>
   </template>
+-->
+
 </body>
 </html>
