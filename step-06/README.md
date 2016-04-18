@@ -2,24 +2,6 @@
 
 Enough of building an app with five beers in a hard-coded dataset! Let's fetch a larger dataset from our server using one of [Polymer iron elements](https://elements.polymer-project.org/browse?package=iron-elements) called [`iron-ajax`](https://elements.polymer-project.org/elements/iron-ajax).
 
-## Dependencies ##
-
-In this step we are adding a dependency to  [`Polymer iron-ajax`](https://elements.polymer-project.org/elements/iron-ajax) element.
-As usual, you set this dependency in the `bower.json` file of your working directory:
-
-```
-{
-  "name": "polymer-beers",
-  "version": "0.0.0",
-  "license": "http://polymer.github.io/LICENSE.txt",
-  "dependencies": {
-    "bootstrap": "~3.3.6",
-    "polymer": "~1.4.0",
-    "iron-ajax": "~1.2.0"
-  }
-}
-```
-
 ## Data ##
 
 Our new dataset is now a list of 11 beers stored in JSON format in the `data/beers/beers.json`, available to your browser at the URL `http://127.0.0.1:8000/data/beers/beers.json`.
@@ -58,9 +40,9 @@ To use `iron-ajax` in our application we need:
     "version": "0.0.0",
     "license": "http://polymer.github.io/LICENSE.txt",
     "dependencies": {    
-      "bootstrap": "~3.3.4",
-      "polymer": "~1.1.0",
-      "iron-ajax": "PolymerElements/iron-ajax#^1.0.0"
+      "bootstrap": "~3.3.6",
+      "polymer": "~1.4.0",
+      "iron-ajax": "iron-ajax#~1.2.0"
     }
   }
   ```
@@ -69,7 +51,7 @@ To use `iron-ajax` in our application we need:
 
 ```html
 <!-- Import iron-ajax to get the list of beers from the server -->
-<link rel="import" href="/bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
 ```
 
 Then we can place an `iron-ajax` element in `beer-list` to request the beer list to the server:
@@ -77,7 +59,7 @@ Then we can place an `iron-ajax` element in `beer-list` to request the beer list
 ```html
     <iron-ajax
       auto
-      url="../beers/beers.json"
+      url="../../data/beers/beers.json"
       params='{}'
       handle-as="json"
       on-response="gotBeers"
@@ -95,15 +77,6 @@ The callback has two parameters, an event object that has all the information ab
       this.beers = ironRequest.response;
     }
 ```
-
-We can then forget the static initialization and simple declare `beers` as an empty array in the `ready` function:
-
-```javascript
-  ready: function() {
-    this.beers = [];
-    ...
-```      
-
 
 You can see all the details on using `iron-ajax` on its [documentation page](https://elements.polymer-project.org/elements/iron-ajax).
 
