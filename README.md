@@ -22,6 +22,7 @@ When you finish the tutorial you will be able to:
 + Create custom elements, with its looks and its behaviour encapsulated inside, setting the bases of a true component architecture client-side
 + Use data binding to wire up your data model to your views.
 + Get data from a server using Polymer iron elements.
++ Use the new Carbon Router to add multipage capabilities to your application
 
 The tutorial guides you through the entire process of building a simple application. Experiments at the end of each step provide suggestions for you to learn more about Polymer and the application you are building.
 
@@ -32,7 +33,7 @@ You can go through the whole tutorial in a couple of hours or you may want to sp
 
 ![Screenshot](/img/step-08_02.jpg)
 
-## What do I need to use this tutorial ##
+## What do I need to use this tutorial? ##
 
 Besides a web browser and a text-editor (we suggest the excellent [Sublime Text](http://www.sublimetext.com/)), you will only need a web-server to test your code.
 
@@ -42,7 +43,7 @@ If you have [NodeJS](http://nodejs.org) in your system, we have put a minimalist
 
 ## How is the tutorial organized ##
 
-As the computer used for the course haven't Git, we have structurated the project to allow a Git-less use. The `app` directory is the main directory of the project, the working version of the code. The tutorial is divided in steps, each one in its own directory:
+As the computer used for the course haven't Git, we have structured the project to allow a Git-less use. The `app` directory is the main directory of the project, the working version of the code. The tutorial is divided in steps, each one in its own directory:
 
 1. [Static HTML](./step-01/)
 1. [Using Polymer elements](./step-02/)
@@ -50,6 +51,12 @@ As the computer used for the course haven't Git, we have structurated the projec
 1. [Filtering](./step-04/)
 1. [Sorting](./step-05/)
 1. [Calling the server](./step-06/)
-1. [Using with others libraries: page.js](./step-07/)
+1. [Routing URLs using Carbon Router](./step-07/)
 
-In each step directory you have a README file that explain the objective of the step, that you will do in the working directory `app`. If you have problems or if you get lost, you also have the solution of each step in the step directories.
+In each step directory you have a README file that explain the objective of the step, that you will do in the working directory `app`. If you have problems or if you get lost, you also have the solution of each step in the step directories. So if you want to see the intended result of  the 6th step, you can point your browser to http://localhost:8000/step-06/index.html
+
+## What should I do now?  ##
+
+OK, now you're ready to follow this tutorial. If you're familiar with git, begin by cloning this repository (`git clone https://github.com/LostInBrittany/polymer-beers`), else you can simply download the zipped file from [GitHub](https://github.com/LostInBrittany/polymer-beers/archive/master.zip).
+
+Now can go to [step-01](./step-01) and begin to follow the README of that step. Let's begin!
