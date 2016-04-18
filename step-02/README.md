@@ -5,7 +5,7 @@ By using it you will see how easily you can add Polymer widgets to your normal w
 
 ## Dependencies ##
 
-In this step we are adding to dependencies, Polymer to get the WebComponents polyfill and the Polymer library core fun functionalities, and Bootstrap to make our app prettier.
+In this step we are adding two dependencies, Polymer to get the WebComponents polyfill and the Polymer library core fun functionalities, and Bootstrap to make our app prettier.
 As usual, you set these dependencies in the `bower.json` file of your working directory:
 
 ```
