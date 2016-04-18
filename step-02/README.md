@@ -3,6 +3,22 @@
 In this step we are going to use our first Polymer element, a very simple custom `beer-list-item`.
 By using it you will see how easily you can add Polymer widgets to your normal web applications.
 
+## Dependencies ##
+
+In this step we are adding to dependencies, Polymer to get the WebComponents polyfill and the Polymer library core fun functionalities, and Bootstrap to make our app prettier.
+As usual, you set these dependencies in the `bower.json` file of your working directory:
+
+```
+{
+  "name": "polymer-beers",
+  "version": "0.0.0",
+  "license": "http://polymer.github.io/LICENSE.txt",
+  "dependencies": {
+    "bootstrap": "~3.3.6",
+    "polymer": "~1.4.0"
+  }
+}
+```
 
 ## The custom element
 
