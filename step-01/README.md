@@ -11,11 +11,15 @@ In this step you will add some basic information about two beers to an HTML page
 
 ## The structure of the app ##
 
-As you can see, the `app` directory have several sub-directories:
+As you can see, the `app` folder have several sub-folders:
 
-* `beers`: a service endpoint with all the information about our beer collection. It will be used in the later steps of the tutorial.
 * `css`: the stylesheets for the app.
 * `elements`: here you will find the definition of the custom Polymer elements used in the tutorial
+
+And a `data` folder to serve the static data (that would be replaced by a REST entrypoint in a real world application), with a sub-folder:
+
+* `beers`: a service endpoint with all the information about our beer collection. It will be used in the later steps of the tutorial.
+
 
 ## Dependencies
 

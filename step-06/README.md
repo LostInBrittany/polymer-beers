@@ -2,9 +2,27 @@
 
 Enough of building an app with five beers in a hard-coded dataset! Let's fetch a larger dataset from our server using one of [Polymer iron elements](https://elements.polymer-project.org/browse?package=iron-elements) called [`iron-ajax`](https://elements.polymer-project.org/elements/iron-ajax).
 
+## Dependencies ##
+
+In this step we are adding a dependency to  [`Polymer iron-ajax`](https://elements.polymer-project.org/elements/iron-ajax) element.
+As usual, you set this dependency in the `bower.json` file of your working directory:
+
+```
+{
+  "name": "polymer-beers",
+  "version": "0.0.0",
+  "license": "http://polymer.github.io/LICENSE.txt",
+  "dependencies": {
+    "bootstrap": "~3.3.6",
+    "polymer": "~1.4.0",
+    "iron-ajax": "~1.2.0"
+  }
+}
+```
+
 ## Data ##
 
-Our new dataset is now a list of 11 beers stored in JSON format in the `step-06/beers/beers.json` file in your project. You need to put the file into `app/beers/beers.json` to make it available from the server at the URL `http://127.0.0.1:8000/app/beers/beers.json`.
+Our new dataset is now a list of 11 beers stored in JSON format in the `data/beers/beers.json`, available to your browser at the URL `http://127.0.0.1:8000/data/beers/beers.json`.
 
 `app/beers/beers.json`:
 
