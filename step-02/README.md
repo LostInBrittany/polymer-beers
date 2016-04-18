@@ -24,9 +24,9 @@ As usual, you set these dependencies in the `bower.json` file of your working di
 
 We are adding a custom `beer-list-item` Polymer element that will be stored in the `elements` folder.
 
-A Polymer element definition is composed of two parts:
+A Polymer element definition is composed of two parts inside a `dom-model` declaration:
 
-* A `dom-model` declaration defining the local DOM for the element. Inside it you will usually find a `template` where we declare the local DOM of the element and the CSS rules that apply to this local DOM.
+* A  `template` defining the local DOM for the element and the CSS rules that apply to this local DOM.
 
 * A `Polymer` element registration linking the `dom-model` and it's behavior and making it available to the application.
 
@@ -54,21 +54,21 @@ Our custom element is very simple at this step:
       <p>{{description}}</p>
     </div>
   </template>
+  <script>
+    Polymer({
+      is: 'beer-list-item',
+
+      properties: {
+        name: String,
+        description: {
+          type: String,
+          value: ""
+        }
+      }
+    })
+  </script>
 </dom-module>
 
-<script>
-Polymer({
-  is: 'beer-list-item',
-
-  properties: {
-    name: String,
-    description: {
-      type: String,
-      value: ""
-    }
-  }
-})
-</script>
 ```
 
 ## Using Polymer elements

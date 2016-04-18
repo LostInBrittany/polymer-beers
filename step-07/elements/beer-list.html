@@ -49,67 +49,66 @@
       on-response="gotBeers"
       debounce-duration="300"></iron-ajax>
   </template>
+  <script>
+    // element registration
+    Polymer({
+      is: "beer-list",
+      // add properties and methods on the element's prototype
+      properties: {
+        beers: {
+          type: Array,
+        },
+        currentBeers: {
+          type: String,
+          computed: "getCurrentBeers(beers, filterText)"
+        },
+        filterText: {
+          type: String,
+          observer: "criteriaChanged"
+        },
+        criterium: {
+          type: String,
+          observer: "criteriaChanged"
+        },
+        descendingSort: {
+          type: Boolean,
+          observer: "criteriaChanged",
+          value: false
+        }
+      },
+      ready: function() {
+        this.beers = [];
+        this.filterText = "";
+        this.criteria = [
+          { name: "name", label: "Alphabetical"},
+          { name: "alcohol", label: "Alcohol content" }
+        ];
+        this.criterium = this.criteria[0].name;
+      },
+      criteriaChanged: function(newValue, oldValue) {
+        this.$.beerList.render();
+      },
+      beerFilter:  function(item) {
+          return item.name.match(new RegExp(this.filterText, 'i'));
+      },
+      getCurrentBeers: function() {
+        var current = 0;
+
+        for (var i in this.beers) {
+          if (this.beerFilter(this.beers[i])) current++
+        }
+        return current;
+      },
+      beerSorter: function(a, b) {
+        var invert = 1;
+        if (this.descendingSort) invert = -1;
+        if ( a[this.criterium] === b[this.criterium] ) return 0;
+        if ( a[this.criterium] < b[this.criterium] ) return -1*invert;
+        if ( a[this.criterium] > b[this.criterium] ) return 1*invert;
+      },
+      gotBeers: function(event, ironRequest) {
+        this.beers = ironRequest.response;
+      }
+    });
+  </script>
 </dom-module>
-
-<script>
-  // element registration
-  Polymer({
-    is: "beer-list",
-    // add properties and methods on the element's prototype
-    properties: {
-      beers: {
-        type: Array,
-      },
-      currentBeers: {
-        type: String,
-        computed: "getCurrentBeers(beers, filterText)"
-      },
-      filterText: {
-        type: String,
-        observer: "criteriaChanged"
-      },
-      criterium: {
-        type: String,
-        observer: "criteriaChanged"
-      },
-      descendingSort: {
-        type: Boolean,
-        observer: "criteriaChanged",
-        value: false
-      }
-    },
-    ready: function() {
-      this.beers = [];
-      this.filterText = "";
-      this.criteria = [
-        { name: "name", label: "Alphabetical"},
-        { name: "alcohol", label: "Alcohol content" }
-      ];
-      this.criterium = this.criteria[0].name;
-    },
-    criteriaChanged: function(newValue, oldValue) {
-      this.$.beerList.render();
-    },
-    beerFilter:  function(item) {
-        return item.name.match(new RegExp(this.filterText, 'i'));
-    },
-    getCurrentBeers: function() {
-      var current = 0;
-
-      for (var i in this.beers) {
-        if (this.beerFilter(this.beers[i])) current++
-      }
-      return current;
-    },
-    beerSorter: function(a, b) {
-      var invert = 1;
-      if (this.descendingSort) invert = -1;
-      if ( a[this.criterium] === b[this.criterium] ) return 0;
-      if ( a[this.criterium] < b[this.criterium] ) return -1*invert;
-      if ( a[this.criterium] > b[this.criterium] ) return 1*invert;
-    },
-    gotBeers: function(event, ironRequest) {
-      this.beers = ironRequest.response;
-    }
-  });
-</script>

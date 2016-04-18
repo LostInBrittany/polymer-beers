@@ -25,18 +25,17 @@
       <p class="pull-right el-alcohol">Alcohol content: {{alcohol}}%</p>
     </div>
   </template>
+  <script>
+    Polymer({
+      is: 'beer-list-item',
+
+      properties: {
+        id: String,
+        name: String,
+        description: String,
+        img: String,
+        alcohol: String
+      }
+    })
+  </script>
 </dom-module>
-
-<script>
-Polymer({
-  is: 'beer-list-item',
-
-  properties: {
-    id: String,
-    name: String,
-    description: String,
-    img: String,
-    alcohol: String
-  }
-})
-</script>

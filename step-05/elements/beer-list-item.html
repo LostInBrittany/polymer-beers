@@ -17,15 +17,14 @@
       <p>{{description}}</p>
     </div>
   </template>
+  <script>
+  Polymer({
+    is: 'beer-list-item',
+
+    properties: {
+      name: String,
+      description: String
+    }
+  })
+  </script>
 </dom-module>
-
-<script>
-Polymer({
-  is: 'beer-list-item',
-
-  properties: {
-    name: String,
-    description: String
-  }
-})
-</script>
