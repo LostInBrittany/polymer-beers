@@ -3,6 +3,6 @@
   "version": "0.0.0",
   "license": "http://polymer.github.io/LICENSE.txt",
   "dependencies": {
-    "bootstrap": "~3.3.4"
+    "bootstrap": "~3.3.6"
   }
 }

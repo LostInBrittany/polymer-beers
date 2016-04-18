@@ -1,6 +1,5 @@
 {
   "name": "page",
-  "version": "1.6.3",
   "description": "Tiny client-side router",
   "keywords": [
     "page",
@@ -28,11 +27,12 @@
   ],
   "license": "MIT",
   "homepage": "https://github.com/visionmedia/page.js",
-  "_release": "1.6.3",
+  "version": "1.6.4",
+  "_release": "1.6.4",
   "_resolution": {
     "type": "version",
-    "tag": "1.6.3",
-    "commit": "d3acfb9770c42e76c00a9c12abdefb627a123999"
+    "tag": "1.6.4",
+    "commit": "d11509f1f0fed0309391d995919c25dce84b8abd"
   },
   "_source": "git://github.com/visionmedia/page.js.git",
   "_target": "~1.6.0",
