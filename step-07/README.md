@@ -238,6 +238,8 @@ We haven't any default routing. What if we want to detect an initial unsupported
 </script>
 ```
 
+`async` is one of the [Polymer's utility functions](https://www.polymer-project.org/1.0/docs/devguide/utility-functions.html#utility-functions), and it allows to call a function asynchronously.
+
 
 
 ![Screenshot](/img/step-07_01.jpg)
