@@ -79,7 +79,7 @@ Using Polymer elements is quick and painless, you only need to follow three step
 
 ```html
 <!-- Polyfill Web Components lite, adding support for older browsers -->
-<script src="../../bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+<script src="../bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
 ```
 
 1. Import the elements you want to use, i.e. `beer-list-item`
