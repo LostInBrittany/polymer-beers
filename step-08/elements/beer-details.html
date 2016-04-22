@@ -84,10 +84,10 @@
 
       <ul class="beer-thumbs">
         <li>
-          <img src="../../data/{{beer.img}}" on-click="setImage">
+          <img src="../../data/{{beer.img}}" beer="{{beer.img}}" on-click="setImage">
         </li>
         <li>
-          <img src="../../data/{{beer.label}}" on-click="setImage">
+          <img src="../../data/{{beer.label}}" beer="{{beer.label}}" on-click="setImage">
         </li>
       </ul>
       <ul class="specs">
@@ -153,7 +153,7 @@
         this.mainImg = this.beer.img;
       },
       setImage: function(evt) {
-        this.mainImg = evt.srcElement.src;
+        this.mainImg = evt.srcElement.beer;
       }
     })
   </script>
