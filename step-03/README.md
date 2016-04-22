@@ -48,7 +48,7 @@ We will use the element's `ready` function, a function that is called when the e
         type: Array,
         // When initializing a property to an object or array value, use a function to ensure that each element
         // gets its own copy of the value, rather than having an object or array shared across all instances of the element
-        value: "function() { return []; }"
+        value: function() { return []; }
       }
     },
     ready: function() {
