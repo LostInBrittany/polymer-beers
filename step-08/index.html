@@ -54,7 +54,7 @@
       </template>
 
     </template>
-    <script>
+   <script>
       HTMLImports.whenReady(function () {
         Polymer({
           is: 'polymer-beers',
@@ -62,31 +62,15 @@
             type: Object
           },
           attached: function() {
+            
             if (!this.route.path) {
+              console.debug("Setting initial route")
               this.set('route.path', '/beers');
-            }
+              window.location.hash = '/beers';
+            }            
+            console.debug("Initial route", this.route.path);
           }
         });
       });
     </script>
   </dom-module>
-
-
-  <!--
-  <template is="dom-bind" id="app">
-    <div>
-      <iron-pages attr-for-selected="data-route" selected="{{route}}">
-
-        <div data-route="beers"  class="container">
-          <beer-list></beer-list>
-        </div>
-
-        <beer-details data-route="beer" id="{{params.name}}"></beer-details>
-
-      </iron-pages>
-    </div>
-  </template>
--->
-
-</body>
-</html>
