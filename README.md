@@ -37,9 +37,24 @@ You can go through the whole tutorial in a couple of hours or you may want to sp
 
 Besides a web browser and a text-editor (we suggest the excellent [Sublime Text](http://www.sublimetext.com/)), you will only need a web-server to test your code.
 
-If you have Python in your system, the easiest way would be to run the embeded SimpleHTTPServer. Go to the project directory and run `python -m SimpleHTTPServer` to start the web server. Now, open a browser window for the app and navigate to http://localhost:8000/app/index.html to see the current state of the app.
+If you have Python in your system, the easiest way would be to run the embeded SimpleHTTPServer. Go to the project directory and run
+
+```
+# Python 2.x
+python -m SimpleHTTPServer
+```
+
+or 
+
+```
+# Python 3.x
+python -m http.server
+```
+
+to start the web server. Now, open a browser window for the app and navigate to http://localhost:8000/app/index.html to see the current state of the app.
 
 If you have [NodeJS](http://nodejs.org) in your system, we have put a minimalist JavaScript web-server on `./scripts/web-server.js`. To see the app running in a browser, open a separate terminal/command line tab or window, go to the project directory and then run `node ./scripts/web-server.js` to start the web server. Now, open a browser window for the app and navigate to http://localhost:8000/app/index.html to see the current state of the app.
+
 
 ## How is the tutorial organized ##
 
