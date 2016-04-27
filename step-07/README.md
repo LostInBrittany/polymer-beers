@@ -83,7 +83,7 @@ In order to use  *carbon-route* for your application route, you need to understa
 `carbon-route` and `carbon-location`
 
 
-### `<carbon-route>` and `<carbon-location>`
+### `<carbon-route>
 
 `<carbon-route>` simply matches an input path against a specified pattern. The input path doesn't come necessarily from the URL, it's a  normal Polymer variable boun d to the  `<carbon-route>`'s `route` attribute. Here you have an example:
 
