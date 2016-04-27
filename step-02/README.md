@@ -82,14 +82,14 @@ Using Polymer elements is quick and painless, you only need to follow three step
 <script src="../bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
 ```
 
-1. Import the elements you want to use, i.e. `beer-list-item`
+2. Import the elements you want to use, i.e. `beer-list-item`
 
 ```html
 <!-- Import `beer-list-item` element -->
 <link rel="import" href="./elements/beer-list-item.html">
 ```
 
-1. Use the element as a new HTML tag
+3. Use the element as a new HTML tag
 
 ```html
 <beer-list-item
