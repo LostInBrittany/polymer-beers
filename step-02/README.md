@@ -76,32 +76,29 @@ Our custom element is very simple at this step:
 Using Polymer elements is quick and painless, you only need to follow three steps:
 
 1. Load the polyfill Web Components to have support for older browsers
+  ```html
+  <!-- Polyfill Web Components lite, adding support for older browsers -->
+  <script src="../bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+  ```
 
-```html
-<!-- Polyfill Web Components lite, adding support for older browsers -->
-<script src="../bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
-```
+1. Import the elements you want to use, i.e. `beer-list-item`
+  ```html
+  <!-- Import `beer-list-item` element -->
+  <link rel="import" href="./elements/beer-list-item.html">
+  ```
 
-2. Import the elements you want to use, i.e. `beer-list-item`
-
-```html
-<!-- Import `beer-list-item` element -->
-<link rel="import" href="./elements/beer-list-item.html">
-```
-
-3. Use the element as a new HTML tag
-
-```html
-<beer-list-item
-  name="Affligem Blond"
-  description="Affligem Blonde, the classic clear blonde abbey ale, with a gentle roundness and 6.8%..."
-></beer-list-item>
-
-<beer-list-item
-  name="Affligem Tripel"
-  description="The king of the abbey beers. It is amber-gold and pours with a deep head and original..."
-></beer-list-item>
-```
+1. Use the element as a new HTML tag
+  ```html
+  <beer-list-item
+    name="Affligem Blond"
+    description="Affligem Blonde, the classic clear blonde abbey ale, with a gentle roundness and 6.8%..."
+  ></beer-list-item>
+  
+  <beer-list-item
+    name="Affligem Tripel"
+    description="The king of the abbey beers. It is amber-gold and pours with a deep head and original..."
+  ></beer-list-item>
+  ```
 
 ## What must I do?
 
