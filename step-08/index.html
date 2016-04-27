@@ -62,9 +62,13 @@
             type: Object
           },
           attached: function() {
+            
             if (!this.route.path) {
+              console.debug("Setting initial route")
               this.set('route.path', '/beers');
-            }
+              window.location.hash = '/beers';
+            }            
+            console.debug("Initial route", this.route.path);
           }
         });
       });
