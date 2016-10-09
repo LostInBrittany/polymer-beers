@@ -74,4 +74,6 @@ In each step directory you have a README file that explain the objective of the 
 
 OK, now you're ready to follow this tutorial. If you're familiar with git, begin by cloning this repository (`git clone https://github.com/LostInBrittany/polymer-beers`), else you can simply download the zipped file from [GitHub](https://github.com/LostInBrittany/polymer-beers/archive/master.zip).
 
-Now can go to [step-01](./step-01) and begin to follow the README of that step. Let's begin!
+Now can go to [step-01](./step-01) and begin to follow the README of that step. 
+
+Let's begin!
