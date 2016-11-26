@@ -86,7 +86,7 @@ The *iron-ajax* calls the file according to the beer id.
 
 ## Don't change a winning team...
 
-We keep the same *carbon-route* routing, with our two routes, one for the beer list (URL fragment `#/beers`) and another for the individual beers (URL fragments following the '/beer/:id' schema).
+We keep the same *app-route* routing, with our two routes, one for the beer list (URL fragment `#/beers`) and another for the individual beers (URL fragments following the '/beer/:id' schema).
 
 But instead of using the auto-binding template, that frankly is a bit hacky, we are going to create a global `polymer-beers` element in `index.html`:
 
@@ -100,10 +100,10 @@ But instead of using the auto-binding template, that frankly is a bit hacky, we 
     }
   </style>
   <template>
-    <carbon-location route="{{route}}" use-hash-as-path></carbon-location>
+    <app-location route="{{route}}" use-hash-as-path></app-location>
 
-    <carbon-route route="{{route}}" pattern="/beers" active="{{beerListActive}}"></carbon-route>
-    <carbon-route route="{{route}}" pattern="/beer/:id" data="{{beerId}}" active="{{beerIdActive}}"></carbon-route>
+    <app-route route="{{route}}" pattern="/beers" active="{{beerListActive}}"></app-route>
+    <app-route route="{{route}}" pattern="/beer/:id" data="{{beerId}}" active="{{beerIdActive}}"></app-route>
 
 
     <div class="container">
@@ -159,10 +159,10 @@ We also keep the conditional templates, but instead of using it to show (or not)
     }
   </style>
   <template>
-    <carbon-location route="{{route}}" use-hash-as-path></carbon-location>
+    <app-location route="{{route}}" use-hash-as-path></app-location>
 
-    <carbon-route route="{{route}}" pattern="/beers" active="{{beerListActive}}"></carbon-route>
-    <carbon-route route="{{route}}" pattern="/beer/:id" data="{{beerId}}" active="{{beerIdActive}}"></carbon-route>
+    <app-route route="{{route}}" pattern="/beers" active="{{beerListActive}}"></app-route>
+    <app-route route="{{route}}" pattern="/beer/:id" data="{{beerId}}" active="{{beerIdActive}}"></app-route>
 
 
     <template is="dom-if" if="{{beerListActive}}">

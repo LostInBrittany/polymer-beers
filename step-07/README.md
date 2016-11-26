@@ -6,9 +6,9 @@ In AngularJS we would get this behaviour by using a router, and defining the rou
 
 Until recently there wasn't an official routing solution for Polymer. When they needed to add a routing component to Polymer, most people either use a non-official component like [excess-router](https://github.com/atotic/excess-router) or packaged an external router library like [visionmedia's page.js](https://visionmedia.github.io/page.js/) inside a custom component.
 
-Since Polymer 1.4 an official solution for routing on Polymer has been released: [carbon-route](https://elements.polymer-project.org/elements/carbon-route), an element that enables declarative, self-describing routing for a web app.
+Since 2016 Google I/O, an official solution for routing on Polymer has been released: [app-route](https://elements.polymer-project.org/elements/app-route), an element that enables declarative, self-describing routing for a web app.
 
-So we are going to use *carbon-route* to do the routing side of our app without having to change things in our elements.
+So we are going to use *app-route* to do the routing side of our app without having to change things in our elements.
 
 ## Auto-binding magic
 
@@ -58,7 +58,7 @@ In order to set initial values to variables or two manipulate the attributes, yo
 
 ## Defining the routes
 
-In order to use *carbon-route* the first step would be to add it to our dependencies using bower, i.e. adding it to the `bower.json` file.
+In order to use *app-route* the first step would be to add it to our dependencies using bower, i.e. adding it to the `bower.json` file.
 
 ```json
 {
@@ -69,51 +69,51 @@ In order to use *carbon-route* the first step would be to add it to our dependen
     "bootstrap": "~3.3.6",
     "polymer": "~1.4.0",
     "iron-ajax": "~1.2.0",
-    "carbon-route": "~0.8.4"
+    "app-route": "~0.8.4"
   }
 }
 ```
 
-As usual, and for the needs of the tutorial, *carbon-route* dependencies are already in `/bower_components`
+As usual, and for the needs of the tutorial, *app-route* dependencies are already in `/bower_components`
 
 
-## `<carbon-route>` and `<carbon-location>`
+## `<app-route>` and `<app-location>`
 
-In order to use  *carbon-route* for your application route, you need to understand the two elements offered by this library:
-`carbon-route` and `carbon-location`
+In order to use  *app-route* for your application route, you need to understand the two elements offered by this library:
+`app-route` and `app-location`
 
 
-### `<carbon-route>`
+### `<app-route>`
 
-`<carbon-route>` simply matches an input path against a specified pattern. The input path doesn't come necessarily from the URL, it's a  normal Polymer variable boun d to the  `<carbon-route>`'s `route` attribute. Here you have an example:
+`<app-route>` simply matches an input path against a specified pattern. The input path doesn't come necessarily from the URL, it's a  normal Polymer variable boun d to the  `<app-route>`'s `route` attribute. Here you have an example:
 
 ```
-<carbon-route route="{{route}}" pattern="/test" active="{{active}}"></carbon-route>
+<app-route route="{{route}}" pattern="/test" active="{{active}}"></app-route>
 ```
 
-If `route` variable matches `/test` pattern, `<carbon-route>` will set `active` to `true`, else `active` will be `false`.
+If `route` variable matches `/test` pattern, `<app-route>` will set `active` to `true`, else `active` will be `false`.
 
-`<carbon-route>` deals with hierarchical, slash separated paths. You give it a pattern, and it tells you when the input matches.
+`<app-route>` deals with hierarchical, slash separated paths. You give it a pattern, and it tells you when the input matches.
 
 If the pattern contains any variables, like `/:page` then the extracts that portion of the matched URL and exposes it via the `data` object.
 
 
-### `<carbon-location>`
+### `<app-location>`
 
-`<carbon-route>` doesn’t know about the URL, it just knows about paths. While you’ll have many `<carbon-route>` elements in your app, there’s only one URL bar. The URL is global. So we’ve got an element whose single responsibility is connecting the URL to your app. We call this element `<carbon-location>`, and it exposes a route property suitable for binding into a `<carbon-route>`, like so:
+`<app-route>` doesn’t know about the URL, it just knows about paths. While you’ll have many `<app-route>` elements in your app, there’s only one URL bar. The URL is global. So we’ve got an element whose single responsibility is connecting the URL to your app. We call this element `<app-location>`, and it exposes a route property suitable for binding into a `<app-route>`, like so:
 
 ```html
-<carbon-location route="{{route}}"></carbon-location>
-<carbon-route
+<app-location route="{{route}}"></app-location>
+<app-route
     route="{{route}}"
     pattern="/:page"
     data="{{data}}"
     tail="{{tail}}">
-</carbon-route>
+</app-route>
 ```
 
 For client-side applications, changing the URL is a risky business, you need a server side application serving the right content.
-Helpfully, `<carbon-location>` provides the `use-hash-as-path` option, which will place the route path on the URL fragment
+Helpfully, `<app-location>` provides the `use-hash-as-path` option, which will place the route path on the URL fragment
 (the URL content beginning with the hash separator `#`).
 
 In our example, we declare two routes, one for the beer list (URL fragment `#/beers`) and another for the individual beers
@@ -121,20 +121,20 @@ In our example, we declare two routes, one for the beer list (URL fragment `#/be
 
 ```html
 <!--
-  `carbon-location binds with the URL and produces a route for  carbon-route
+  `app-location binds with the URL and produces a route for  app-route
   elements to consume. Since this application needs to run without server
   `cooperation we'll use the hash portion of the URL for our route paths.
 -->
-<carbon-location route="{{route}}" use-hash-as-path></carbon-location>
+<app-location route="{{route}}" use-hash-as-path></app-location>
 
 <!--
-  carbon-routes parse route paths based on the their `pattern`.
+  app-routes parse route paths based on the their `pattern`.
   Parameters are extracted into the `data` object. The rest of the path that
   comes after the `pattern` is put into the `tail` object, which can be
-  passed to the `route` property of downstream carbon-routes.
+  passed to the `route` property of downstream app-routes.
 -->
-<carbon-route route="{{route}}" pattern="/beers" active="{{beerListActive}}"></carbon-route>
-<carbon-route route="{{route}}" pattern="/beer/:id" data="{{beerId}}" active="{{beerIdActive}}"></carbon-route>
+<app-route route="{{route}}" pattern="/beers" active="{{beerListActive}}"></app-route>
+<app-route route="{{route}}" pattern="/beer/:id" data="{{beerId}}" active="{{beerIdActive}}"></app-route>
 ```
 
 ## Hyperlinking the beers
@@ -194,7 +194,7 @@ To show a label when a beer have been selected, we are going to use Polymer's [c
 stamp elements into the DOM according to boolean properties.  The `dom-if` template stamps its contents into the DOM only when its `if`
 property becomes truthy.
 
-We want to monitor the variables set by *carbon-route*, so we can define two blocks:
+We want to monitor the variables set by *app-route*, so we can define two blocks:
 
 ```html
 <div class="container">

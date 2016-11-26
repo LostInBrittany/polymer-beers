@@ -2,8 +2,8 @@
   "name": "polymer-beers",
   "version": "0.0.0",
   "license": "http://polymer.github.io/LICENSE.txt",
-  "dependencies": {    
-    "bootstrap": "~3.3.6",
-    "polymer": "~1.4.0"
+  "dependencies": { 
+    "bootstrap": "~3.3.7",
+    "polymer": "~1.7.0"
   }
 }

@@ -9,9 +9,9 @@
   <!-- Polyfill Web Components support for older browsers -->
   <script src="../bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
 
-  <!-- Import `carbon-route` element -->
-  <link rel="import" href="../bower_components/carbon-route/carbon-location.html">
-<link rel="import" href="../bower_components/carbon-route/carbon-route.html">
+  <!-- Import `app-route` element -->
+  <link rel="import" href="../bower_components/app-route/app-location.html">
+<link rel="import" href="../bower_components/app-route/app-route.html">
 
   <!-- Import `beer-list` element -->
   <link rel="import" href="./elements/beer-list.html">
@@ -25,20 +25,20 @@
   <template is="dom-bind" id="app">
 
     <!--
-      `carbon-location binds with the URL and produces a route for  carbon-route
+      `app-location binds with the URL and produces a route for  app-route
       elements to consume. Since this application needs to run without server
       `cooperation we'll use the hash portion of the URL for our route paths.
     -->
-    <carbon-location route="{{route}}" use-hash-as-path></carbon-location>
+    <app-location route="{{route}}" use-hash-as-path></app-location>
 
     <!--
-      carbon-routes parse route paths based on the their `pattern`.
+      app-routes parse route paths based on the their `pattern`.
       Parameters are extracted into the `data` object. The rest of the path that
       comes after the `pattern` is put into the `tail` object, which can be
-      passed to the `route` property of downstream carbon-routes.
+      passed to the `route` property of downstream app-routes.
     -->
-    <carbon-route route="{{route}}" pattern="/beers" active="{{beerListActive}}"></carbon-route>
-    <carbon-route route="{{route}}" pattern="/beer/:id" data="{{beerId}}" active="{{beerIdActive}}"></carbon-route>
+    <app-route route="{{route}}" pattern="/beers" active="{{beerListActive}}"></app-route>
+    <app-route route="{{route}}" pattern="/beer/:id" data="{{beerId}}" active="{{beerIdActive}}"></app-route>
 
 
     <div class="container">

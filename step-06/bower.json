@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "license": "http://polymer.github.io/LICENSE.txt",
   "dependencies": {
-    "bootstrap": "~3.3.6",
-    "polymer": "~1.4.0",
-    "iron-ajax": "~1.2.0"
+    "bootstrap": "~3.3.7",
+    "polymer": "~1.7.0",
+    "iron-ajax": "PolymerElements/iron-ajax#~1.4.3"
   }
 }

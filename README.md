@@ -22,7 +22,7 @@ When you finish the tutorial you will be able to:
 + Create custom elements, with its looks and its behaviour encapsulated inside, setting the bases of a true component architecture client-side
 + Use data binding to wire up your data model to your views.
 + Get data from a server using Polymer iron elements.
-+ Use the new Carbon Router to add multipage capabilities to your application
++ Use the new App Router to add multipage capabilities to your application
 
 The tutorial guides you through the entire process of building a simple application. Experiments at the end of each step provide suggestions for you to learn more about Polymer and the application you are building.
 
@@ -66,7 +66,7 @@ As the computer used for the course haven't Git, we have structured the project 
 1. [Filtering](./step-04/)
 1. [Sorting](./step-05/)
 1. [Calling the server](./step-06/)
-1. [Routing URLs using Carbon Router](./step-07/)
+1. [Routing URLs using App Router](./step-07/)
 
 In each step directory you have a README file that explain the objective of the step, that you will do in the working directory `app`. If you have problems or if you get lost, you also have the solution of each step in the step directories. So if you want to see the intended result of  the 6th step, you can point your browser to http://localhost:8000/step-06/index.html
 

@@ -10,9 +10,9 @@
   <script src="../bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
 
 
-  <!-- Import `carbon-route` element -->
-  <link rel="import" href="../bower_components/carbon-route/carbon-location.html">
-  <link rel="import" href="../bower_components/carbon-route/carbon-route.html">
+  <!-- Import `app-route` element -->
+  <link rel="import" href="../bower_components/app-route/app-location.html">
+  <link rel="import" href="../bower_components/app-route/app-route.html">
 
   <!-- Import `beer-list` element -->
   <link rel="import" href="./elements/beer-list.html">
@@ -35,10 +35,10 @@
       }
     </style>
     <template>
-      <carbon-location route="{{route}}" use-hash-as-path></carbon-location>
+      <app-location route="{{route}}" use-hash-as-path></app-location>
 
-      <carbon-route route="{{route}}" pattern="/beers" active="{{beerListActive}}"></carbon-route>
-      <carbon-route route="{{route}}" pattern="/beer/:id" data="{{beerId}}" active="{{beerIdActive}}"></carbon-route>
+      <app-route route="{{route}}" pattern="/beers" active="{{beerListActive}}"></app-route>
+      <app-route route="{{route}}" pattern="/beer/:id" data="{{beerId}}" active="{{beerIdActive}}"></app-route>
 
       <template is="dom-if" if="{{beerListActive}}">
         <div class="container">
