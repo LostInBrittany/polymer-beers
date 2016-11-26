@@ -131,3 +131,8 @@ And we add some CSS to make things prettier:
 
 
 ![Screenshot](/img/step-06_01.jpg)  
+
+
+## Summary ##
+
+Now that you have loaded beer data from a server-side JSON file, go to [step 7](../step-07) to learn how to add the details of each beer.
