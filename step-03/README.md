@@ -19,17 +19,17 @@ We begin by creating a new file for the element, `elements/beer-list.html`. Insi
       /* CSS rules for your element */
     </style>
   </template>
-</dom-module>
 
-<script>
-  // element registration
-  Polymer({
-    is: "beer-list",
-    // add properties and methods on the element's prototype
-    properties: {
-    }
-  });
-</script>
+  <script>
+    // element registration
+    Polymer({
+      is: "beer-list",
+      // add properties and methods on the element's prototype
+      properties: {
+      }
+    });
+  </script>
+</dom-module>
 ```
 
 ## Defining the model
